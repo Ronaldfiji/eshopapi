@@ -27,8 +27,7 @@ namespace DataModel.Entity.EntityEShop
         [Range(1,5, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Rating { get; set; } = 1;
         [Required(ErrorMessage ="Category  is required !")]
-        public int CategoryID { get; set; }  
-        [Required(ErrorMessage ="Supplier  is required !")]      
+        public int CategoryID { get; set; }
         public int? SupplierID { get; set; }
         public int? ProductUnitID { get; set; }
         public int? UserID { get; set; }
