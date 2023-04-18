@@ -19,7 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddDbContext<SchoolDBContext>(options =>
-   options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolDBConn")));
+   options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolDBConnProd")));
 
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("App_Settings"));
 
