@@ -21,123 +21,175 @@ namespace SchoolApiv2.Repository.EShopRepository
 
         public async Task<Product?> GetProduct(int id)
         {
-            var product = await _context.Product
-              .Include(p => p.Category)
-              .Include(p => p.Supplier)
-              .Include(p => p.ProductImages)
-              .FirstOrDefaultAsync(c => c.ID == id);
-            return product;
+            try
+            {
+                var product = await _context.Product
+                  .Include(p => p.Category)
+                  .Include(p => p.Supplier)
+                  .Include(p => p.ProductImages)
+                  .FirstOrDefaultAsync(c => c.ID == id);
+                return product;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "{Repo} GetProduct() by id method error", typeof(ProductRepository));
+                throw new Exception($"Failed to find subject with {nameof(id)} in database " + $": {ex.Message}");
+            }
         }
 
         public async Task<IEnumerable<Product>> GetProducts()
         {
-            //var products = await GetAllAsync();
-            var products = await _context.Product
-                .Include(p => p.Category)
-                .Include(p => p.Supplier)
-                .Include(p => p.ProductImages)
-                .ToListAsync();
-            return products;
+            try
+            {
+                //var products = await GetAllAsync();
+                var products = await _context.Product
+                    .Include(p => p.Category)
+                    .Include(p => p.Supplier)
+                    .Include(p => p.ProductImages)
+                    .ToListAsync();
+                return products;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "{Repo} GetProducts() method error", typeof(ProductRepository));
+                throw new Exception($"Failed to find Products  in database " + $": {ex.Message}");
+
+            }
         }
 
         public async Task<PagedList<Product>> GetProducts(PagingRequestDto pagedRequestDto)
         {
+            try
+            {
+                var products = await _context.Product
+                    .SearchProduct(pagedRequestDto)
+                    .Include(p => p.Category)
+                    .Include(p => p.Supplier)
+                    .Include(p => p.ProductImages)
+                    .ToListAsync();
 
-            var products = await _context.Product
-                .SearchProduct(pagedRequestDto)
-                .Include(p => p.Category)
-                .Include(p => p.Supplier)
-                .Include(p => p.ProductImages)
-                .ToListAsync();
-
-            return PagedList<Product>
-            .ToPagedList(products, pagedRequestDto.PageNumber, pagedRequestDto.PageSize);
+                return PagedList<Product>
+                .ToPagedList(products, pagedRequestDto.PageNumber, pagedRequestDto.PageSize);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "{Repo} GetProducts() paged method error", typeof(ProductRepository));
+                throw new Exception($"GetProdcuts()  menthod() => Failed to fetch product data  in database " + $": {ex.Message}");
+            }
 
         }
 
         public async Task<Product> CreateProduct(ProductToEditDto productAddDto)
         {
-            var savedImages = await SaveImagesToLocalDirectory(productAddDto.ProductImagesToAddDto,
-            productAddDto.Code, "Products");
+            try
+            {
+                var savedImages = await SaveImagesToLocalDirectory(productAddDto.ProductImagesToAddDto,
+                productAddDto.Code, "Products");
 
-            var product = new Product()
-            {
-                Code = productAddDto.Code,
-                Name = productAddDto.Name,
-                Description = productAddDto.Description,
-                Quantity = productAddDto.Quantity,
-                UnitPrice = productAddDto.UnitPrice,
-                CategoryID = productAddDto.CategoryID,
-                SupplierID = productAddDto.SupplierID,
-                ProductUnitID = productAddDto.ProductUnitID,
-                IsOnPromotion = productAddDto.IsOnPromotion,
-                IPAddress = productAddDto.IPAddress,
-            };
-            if (savedImages != null)
-            {
-                product.ProductImages = (from img in savedImages
-                                         select new ProductImage
-                                         {
-                                             Name = img.Name,
-                                             Description = img.Description,
-                                             Path = img.Path
-                                         }).ToList();
+                var product = new Product()
+                {
+                    Code = productAddDto.Code,
+                    Name = productAddDto.Name,
+                    Description = productAddDto.Description,
+                    Quantity = productAddDto.Quantity,
+                    UnitPrice = productAddDto.UnitPrice,
+                    CategoryID = productAddDto.CategoryID,
+                    SupplierID = productAddDto.SupplierID,
+                    ProductUnitID = productAddDto.ProductUnitID,
+                    IsOnPromotion = productAddDto.IsOnPromotion,
+                    IPAddress = productAddDto.IPAddress,
+                    CreatedBy = productAddDto.CreatedBy,
+                    UserID= productAddDto.UserID,
+                    Rating= productAddDto.Rating,
+
+                };
+                if (savedImages != null)
+                {
+                    product.ProductImages = (from img in savedImages
+                                             select new ProductImage
+                                             {
+                                                 Name = img.Name,
+                                                 Description = img.Description,
+                                                 Path = img.Path
+                                             }).ToList();
+                }
+                var newProduct = await Add(product);
+                return newProduct;
             }
-            var newProduct = await Add(product);
-            return newProduct;
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "{Repo} CreateProduct() method error", typeof(ProductRepository));
+                throw new Exception($"Failed to create product {nameof(ProductToEditDto)} in database " + $": {ex}");
+            }
         }
 
        
 
         public async Task<Product> UpdateProduct(int id, ProductToEditDto ProductUpdateDto)
         {
-            var item = await Get(id);
-            if (item != null)
+            try
             {
-                var savedImages = await SaveImagesToLocalDirectory(ProductUpdateDto.ProductImagesToAddDto,
-                                    item.Code, "Products");
+                var item = await Get(id);
+                if (item != null)
+                {
+                    var savedImages = await SaveImagesToLocalDirectory(ProductUpdateDto.ProductImagesToAddDto,
+                                        item.Code, "Products");
 
-                //item.Code = ProductUpdateDto.Code;
-                item.Name = ProductUpdateDto.Name;
-                item.Description = ProductUpdateDto.Description;
-                item.Quantity = ProductUpdateDto.Quantity;
-                item.UnitPrice = ProductUpdateDto.UnitPrice;
-                item.CategoryID = ProductUpdateDto.CategoryID;
-                item.SupplierID = ProductUpdateDto.SupplierID;
-                item.ProductUnitID = ProductUpdateDto.ProductUnitID;
-                item.IsOnPromotion = ProductUpdateDto.IsOnPromotion;
-                item.IPAddress = ProductUpdateDto.IPAddress;
-                item.ModifiedDate = ProductUpdateDto.ModifiedDate;
+                    //item.Code = ProductUpdateDto.Code;
+                    item.Name = ProductUpdateDto.Name;
+                    item.Description = ProductUpdateDto.Description;
+                    item.Quantity = ProductUpdateDto.Quantity;
+                    item.UnitPrice = ProductUpdateDto.UnitPrice;
+                    item.CategoryID = ProductUpdateDto.CategoryID;
+                    item.SupplierID = ProductUpdateDto.SupplierID;
+                    item.ProductUnitID = ProductUpdateDto.ProductUnitID;
+                    item.IsOnPromotion = ProductUpdateDto.IsOnPromotion;
+                    item.IPAddress = ProductUpdateDto.IPAddress;
+                    item.ModifiedDate = ProductUpdateDto.ModifiedDate;
 
-                item.ProductImages = (from img in savedImages
-                                      select new ProductImage
-                                      {
-                                          Name = img.Name,
-                                          Description = img.Description,
-                                          Path = img.Path
-                                      }).ToList();
+                    item.ProductImages = (from img in savedImages
+                                          select new ProductImage
+                                          {
+                                              Name = img.Name,
+                                              Description = img.Description,
+                                              Path = img.Path
+                                          }).ToList();
 
-                return await UpdateAsync(item);
+                    return await UpdateAsync(item);
+                }
+
+                return null!;
             }
-
-            return null!;
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "{Repo} UpdateProduct() method error", typeof(ProductRepository));
+                throw new Exception($"Failed to update {nameof(ProductToEditDto)} in database " + $": {ex.Message}");
+            }
         }
         public async Task<Product?> DeleteProduct(int id)
         {
-            var item = await Get(id);
-            if (item == null)
+            try
             {
-                return default(Product);
+                var item = await Get(id);
+                if (item == null)
+                {
+                    return default(Product);
+                }
+                var deletedItem = await DeleteAsync(item);
+                if (deletedItem != null)
+                {
+                    var status = await DeleteImageFolder("Products", deletedItem.Code);
+                    return deletedItem;
+                }
+                else
+                {
+                    return default(Product);
+                }
             }
-            var deletedItem = await DeleteAsync(item);
-            if (deletedItem != null)
+            catch (Exception ex)
             {
-                var status = await DeleteImageFolder("Products", deletedItem.Code);
-                return deletedItem;
-            }
-            else
-            {
-                return default(Product);
+                _logger.LogError(ex, "{Repo} DeleteProduct() method error", typeof(ProductRepository));
+                throw new Exception($"Failed to delete {nameof(id)} in database " + $": {ex.Message}");
             }
 
         }

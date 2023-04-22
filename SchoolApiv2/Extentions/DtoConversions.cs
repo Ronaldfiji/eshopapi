@@ -857,29 +857,37 @@ namespace SchoolApiv2.Extentions
                 ProductUnitID = product.ProductUnitID,                
                 IsOnPromotion = product.IsOnPromotion,
                 UserID= product.UserID,
-                CategoryDto = product.Category != null ? new CategoryDto {
-                    ID = product.Category.ID,Code = product.Category.Code, Name = product.Category.Name,
-                    Description = product.Category.Description, CreatedBy = product.Supplier.CreatedBy,UpdatedBy = product.Supplier.UpdatedBy,
-                    CreatedDate = product.Supplier.CreatedDate,ModifiedDate = product.Supplier.ModifiedDate,IPAddress = product.Category.IPAddress,
+                CategoryDto = product?.Category != null ? new CategoryDto {
+                    ID = product.Category.ID, Code = product.Category.Code, Name = product.Category.Name,
+                    Description = product.Category.Description, CreatedBy = product.Category.CreatedBy,UpdatedBy = product.Category.UpdatedBy,
+                    CreatedDate = product.Category.CreatedDate,ModifiedDate = product.Category.ModifiedDate,IPAddress = product.Category.IPAddress,
                 } : new CategoryDto(),
 
-                SupplierDto = product.Supplier != null ? new SupplierDto
+                SupplierDto = product?.Supplier != null ? new SupplierDto
                 {
-                    ID = product.Supplier.ID,Name = product.Supplier.Name, Address = product.Supplier.Address,
-                    City = product.Supplier.City,Code = product.Supplier.Code,Phone = product.Supplier.Phone,
-                    Email = product.Supplier.Email, CreatedBy = product.Supplier.CreatedBy,
-                    UpdatedBy = product.Supplier.UpdatedBy,IPAddress = product.Supplier.IPAddress,
-                    CreatedDate = product.Supplier.CreatedDate,ModifiedDate = product.Supplier.ModifiedDate,
+                    ID = product.Supplier.ID,
+                    Name = product.Supplier.Name,
+                    Address = product.Supplier.Address,
+                    City = product.Supplier.City,
+                    Code = product.Supplier.Code,
+                    Phone = product.Supplier.Phone,
+                    Email = product.Supplier.Email,
+                    CreatedBy = product.Supplier.CreatedBy,
+                    UpdatedBy = product.Supplier.UpdatedBy,
+                    IPAddress = product.Supplier.IPAddress,
+                    CreatedDate = product.Supplier.CreatedDate,
+                    ModifiedDate = product.Supplier.ModifiedDate,
 
                 } : new SupplierDto(),
 
-                ProductImagesDto = (from prodImg in product.ProductImages select new ProductImageDto
-                {
-                    ID= prodImg.ID,
-                    Name = prodImg.Name,
-                    Path= prodImg.Path,
-                    Description= prodImg.Description,
-                }).ToList(),
+                ProductImagesDto = (from prodImg in product.ProductImages
+                                    select new ProductImageDto
+                                    {
+                                        ID = prodImg.ID,
+                                        Name = prodImg.Name,
+                                        Path = prodImg.Path,
+                                        Description = prodImg.Description,
+                                    }).ToList(),
                 CreatedDate = product.CreatedDate,
                 ModifiedDate = product.ModifiedDate,
                 IPAddress = product.IPAddress,
@@ -900,7 +908,7 @@ namespace SchoolApiv2.Extentions
                         Description = product.Description,
                         Quantity = product.Quantity,
                         UnitPrice = product.UnitPrice,
-                        Rating= product.Rating,
+                        Rating = product.Rating,
                         //ImageURL = GlobalData.HostBaseAddress + "/" + product.ProductImages.ToList().FirstOrDefault()?.Path ?? string.Empty,
                         ImageURL = product.ProductImages.ToList().FirstOrDefault()?.Path ?? string.Empty,
                         ProductUnitID = product?.ProductUnitID,
@@ -908,17 +916,15 @@ namespace SchoolApiv2.Extentions
                         CreatedDate = product.CreatedDate,
                         ModifiedDate = product.ModifiedDate,
                         IPAddress = product.IPAddress,
-                        UserID= product?.UserID,
-                        CategoryDto = new CategoryDto
-                        {
+                        UserID = product?.UserID,
+                        CategoryDto = product.Category != null ? new CategoryDto {
                             ID = product.Category.ID,
                             Code = product.Category.Code,
                             Name = product.Category.Name,
                             Description = product.Category.Description,
                             IPAddress = product.Category.IPAddress,
-                        },
-                        SupplierDto = new SupplierDto
-                        {
+                        } : new CategoryDto(),
+                        SupplierDto = product.Supplier != null ? new SupplierDto {
                             ID = product.Supplier.ID,
                             Name = product.Supplier.Name,
                             Address = product.Supplier.Address,
@@ -929,17 +935,15 @@ namespace SchoolApiv2.Extentions
                             IPAddress = product.Supplier.IPAddress,
                             CreatedDate = product.Supplier.CreatedDate,
                             ModifiedDate = product.Supplier.ModifiedDate,
-
-                        },
+                        } : new SupplierDto(),
+                        
                         ProductImagesDto = (from pImg in product.ProductImages
                                             select new ProductImageDto
                                             {
                                                 ID = pImg.ID,
                                                 Name = pImg.Name,
-                                                Path= pImg.Path, //GlobalData.HostBaseAddress + "/" + pImg.Path,
+                                                Path = pImg.Path, //GlobalData.HostBaseAddress + "/" + pImg.Path,
                                                 Description = pImg.Description,
-
-
                                             }).ToList(),
                         //ImageURL = (from pImg in product.ProductImages select new string( pImg.Path)).First(),
                     }).ToList();

@@ -111,9 +111,13 @@ namespace SchoolApiv2.Controllers.eShop
             catch (FormatException ex)
             {
                 return BadRequest(ex.Message);
-            }
+            }            
             catch (Exception ex)
             {
+                if (ex.Message.Contains("LINQ query parameter expression"))
+                {
+                    return BadRequest(ex.Message);
+                }
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
 
             }
@@ -156,8 +160,16 @@ namespace SchoolApiv2.Controllers.eShop
 
                 return CreatedAtAction(nameof(GetItem), new { id = newProduct.ID }, newProductDto);
             }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest(ex.Message);
+            }            
             catch (Exception ex)
             {
+                if (ex.Message.Contains("FOREIGN KEY constraint"))
+                {
+                    return BadRequest(ex.Message);
+                }
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

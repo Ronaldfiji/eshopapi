@@ -1,6 +1,7 @@
 ﻿using DataModel.Entity;
 using DataModel.Entity.EntityEShop;
 using SharedModel.Models;
+using System;
 
 namespace SchoolApiv2.Repository.RepoExt.EShopRepoExt
 {
@@ -22,6 +23,16 @@ namespace SchoolApiv2.Repository.RepoExt.EShopRepoExt
             if (columnName == "name")
             {
                 return products.Where(p => p.Name.Contains(searchText));
+            }
+            if (columnName == "userid")
+            {
+                try
+                {
+                    return products.Where(p => p.UserID == Int32.Parse(searchText));
+                }catch(FormatException)
+                {
+                    throw;// new Exception("Number format exception, failed to pass int value" + ex.Message);
+                }
             }
             return products;
 

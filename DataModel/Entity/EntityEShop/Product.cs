@@ -17,7 +17,7 @@ namespace DataModel.Entity.EntityEShop
         [Required(ErrorMessage ="Product code is required !"), StringLength(10, ErrorMessage = "Product code should be 10 chars long.")]       
         public string Code { get; set; } = string.Empty;
         [Display(Name ="Product Name")]
-        [Required(ErrorMessage ="Product name is required !"), StringLength(60, ErrorMessage = "Product name should be 30 chars long.")]        
+        [Required(ErrorMessage ="Product name is required !"), StringLength(40, ErrorMessage = "Product name should be 40 chars long.")]        
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public int Quantity { get; set; } // ushort - Unsigned 16 bit integer (-32,768 - 32,768)

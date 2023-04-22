@@ -38,7 +38,7 @@ namespace SharedModel.Models.eShopModels
         [Required(ErrorMessage = "Product code is required !"), StringLength(10, ErrorMessage = "Product code should be 10 chars long.")]
         public string Code { get; set; } = string.Empty;
         [Display(Name = "Product Name")]
-        [Required(ErrorMessage = "Product name is required !"), StringLength(30, ErrorMessage = "Product name should be 30 chars long.")]
+        [Required(ErrorMessage = "Product name is required !"), StringLength(40, ErrorMessage = "Product name should be 40 chars long.")]
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public int Quantity { get; set; } // Unsigned 16 bit integer (-32,768 - 32,768)  
@@ -48,18 +48,18 @@ namespace SharedModel.Models.eShopModels
         public string ImageURL { get; set; } = string.Empty;
         [Required(ErrorMessage = "Category  is required !")]
         public int CategoryID { get; set; }       
-        public int SupplierID { get; set; }
-        public int UserID { get; set; }
+        public int? SupplierID { get; set; }
+        public int? UserID { get; set; }
         public int? ProductUnitID { get; set; }
         public bool IsOnPromotion { get; set; } = false;
-        public virtual List<ProductImagesToAddDto> ProductImagesToAddDto { get; set; } = Enumerable.Empty<ProductImagesToAddDto>().ToList();
-
-        [JsonIgnore]
-        public string IPAddress { get; set; } = string.Empty;
+        public virtual List<ProductImagesToAddDto> ProductImagesToAddDto { get; set; } = Enumerable.Empty<ProductImagesToAddDto>().ToList();  
         [JsonIgnore]
         public DateTime? CreatedDateTime { get; set; }
         [JsonIgnore]
         public DateTime? ModifiedDate { get; set; }
+        public string? CreatedBy { get; set; } = string.Empty;
+        [JsonIgnore]
+        public string IPAddress { get; set; } = string.Empty;
 
     }
 

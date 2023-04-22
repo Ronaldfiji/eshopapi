@@ -173,9 +173,9 @@ namespace SchoolApiv2.Controllers
 
                 /* Override the role list  to ensure user with only with one role, 'User' role is created */
                 //userToAddDto.Roles.Find(r => r.Id == 1) == null ? userToAddDto.Roles.Add(new RoleToAddEditDto { Id = 1, Name = "User" });
-                userToAddDto.Roles.Add(userToAddDto.Roles.Find(r => r.Id == 1) ?? new RoleToAddEditDto { Id = 1, Name = "User" });
-
-                //userToAddDto.Roles = new List<RoleToAddEditDto> { new RoleToAddEditDto() { Id=1} };
+                //userToAddDto.Roles.Add(userToAddDto.Roles.Find(r => r.Id == 1) ?? new RoleToAddEditDto { Id = 1, Name = "User" });
+                userToAddDto.Roles.Clear();
+                userToAddDto.Roles = new List<RoleToAddEditDto> { new RoleToAddEditDto() { Id=1} };
 
                 var newUser = await this.userRepository.CreateUser(userToAddDto);
                 

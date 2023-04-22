@@ -146,14 +146,14 @@ namespace DataModel.DB
                 },
                 new Product()
                 {
-                    ID = 9, Code="PR0009", Name= "Moissanite Necklace Pendant In Sterling Silver", 
+                    ID = 9, Code="PR0009", Name= "Moissanite Necklace Sterling Silver", 
                     Description= "Maximise your sparkle with our Pandora Timeless Pavé Double-row Ring. With warm 14k rose gold plating, this hand-finished ring features two rows of clear cubic zirconia around the centre and one row facing outwards around each side, creating a slightly rounded square profile that sparkles from every angle. Wear it on its own or stacked with other Timeless Pavé rings to create as bold of a look as you want.",
                     Rating=5, UnitPrice=2995M,IsOnPromotion=false,Quantity=10, CategoryID=7 , SupplierID=4, 
                     CreatedBy = "Ronald", IPAddress = "255.255.255.1", CreatedDate = DateTime.UtcNow.AddHours(12),
                 },
                 new Product()
                 {
-                    ID = 10, Code="PR0010", Name= "White and Golden Pearl Pendant Necklaces", 
+                    ID = 10, Code="PR0010", Name= "White & Golden Pearl Pendant Necklaces", 
                     Description="Crafted with most peculiar pearls of south pacific"
                      ,Rating=5, UnitPrice=5995M,IsOnPromotion=false,Quantity=10, CategoryID=7 , SupplierID=4, 
                     CreatedBy = "Ronald", IPAddress = "255.255.255.1", CreatedDate = DateTime.UtcNow.AddHours(12),
