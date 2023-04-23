@@ -101,8 +101,8 @@ namespace DataModel.DB
             builder.Entity<Product>().HasData(
                 new Product()
                 {
-                    ID = 1, Code="PR0001", Name="Head Phone", Description= "Head phone for work", Rating=3, UnitPrice=49.36M, 
-                    IsOnPromotion=false,Quantity=35, CategoryID=1 , SupplierID=2, 
+                    ID = 1, Code="PR0001", Name="Professional Head Phone", Description= "Head phone for professionals", Rating=4, UnitPrice=49.99M, 
+                    IsOnPromotion=true,Quantity=320, CategoryID=1 , SupplierID=2, 
                     CreatedBy = "Ronald", IPAddress = "255.255.255.1", CreatedDate = DateTime.UtcNow.AddHours(12),
                 },new Product()
                 {

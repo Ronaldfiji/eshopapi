@@ -21,5 +21,6 @@ namespace SchoolApiv2.Repository.Contracts.EShopRepositoryContracts
         Task<Dictionary<string, object>> ProductInventoryExist(List<CartItem> cartItems);
         Task<ServiceResponse<ProductImage>> DeleteProductImage(int id);
         Task<IEnumerable<Product>> GetProductByName(string? productName);
+        Task<bool> DeleteProducts(List<ProductToEditDto> productToEditDtos);
     }
 }

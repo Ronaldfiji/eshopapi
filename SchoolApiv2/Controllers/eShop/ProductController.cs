@@ -238,13 +238,45 @@ namespace SchoolApiv2.Controllers.eShop
                 {
                     return NotFound();
                 }
-                var deletedItemDto = deletedItem.ConvertToDto();
-                //var userMapper = mapper.Map<UserDto>(deletedUser);
-                return Ok(deletedItemDto); // or ' return NoContent();'
+                //var deletedItemDto = deletedItem.ConvertToDto();
+                var productDto = mapper.Map<ProductDto>(deletedItem);
+                return Ok(productDto); // or ' return NoContent();'
 
             }
             catch (Exception ex)
             {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        // Post: api/ProductController/Delete/List<Product>
+        [HttpPost("DeleteItems")]
+        public async Task<ActionResult> DeleteProducts([FromBody] IEnumerable<ProductToEditDto> productToEditDtos)
+        {
+            try
+            {
+
+                if (productToEditDtos == null || !productToEditDtos.Any() || !ModelState.IsValid)
+                {
+                    return BadRequest($"Entity to delete {nameof(ProductToEditDto)} cannot be null or empty !");
+                }
+
+                var deleteProducts = await productRepository.DeleteProducts(productToEditDtos.ToList());
+
+                if (deleteProducts == false)
+                {
+                    return NotFound();
+                }
+
+                return Ok(new { message = "Records deleted success", StatusCode = 200, Status = deleteProducts });
+            }
+
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("modified or deleted"))
+                {
+                    return BadRequest(ex.Message);
+                }
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

@@ -1,4 +1,6 @@
-﻿using DataModel.DB;
+﻿using AutoMapper;
+using DataModel.DB;
+using DataModel.Entity;
 using DataModel.Entity.EntityEShop;
 using Microsoft.EntityFrameworkCore;
 using SchoolApiv2.Extentions;
@@ -13,10 +15,12 @@ namespace SchoolApiv2.Repository.EShopRepository
     public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         private readonly IWebHostEnvironment env;
-        public ProductRepository(SchoolDBContext context, ILogger<ProductRepository> logger,
-            IWebHostEnvironment env) : base(context, logger)
+        private readonly IMapper mapper;
+        public ProductRepository(SchoolDBContext context, ILogger<ProductRepository> logger, 
+            IWebHostEnvironment env, IMapper _mapper) : base(context, logger)
         {
             this.env = env;
+            mapper = _mapper;
         }
 
         public async Task<Product?> GetProduct(int id)
@@ -192,6 +196,24 @@ namespace SchoolApiv2.Repository.EShopRepository
                 throw new Exception($"Failed to delete {nameof(id)} in database " + $": {ex.Message}");
             }
 
+        }
+        public async Task<bool> DeleteProducts(List<ProductToEditDto> productToEditDtos)
+        {
+            try
+            {
+                var products = mapper.Map<List<Product>>(productToEditDtos);
+                var deletedItemsStatus = await DeleteRangeAsync(products);
+                if (deletedItemsStatus)
+                {
+                    productToEditDtos.ForEach(async prod => await DeleteImageFolder("Products", prod.Code));                    
+                }
+                return deletedItemsStatus;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "{Repo} DeleteProducts() method error", typeof(ProductRepository));
+                throw new Exception($"Failed to delete {nameof(ProductToEditDto)} in database " + $": {ex.Message}");
+            }
         }
 
         public async Task<List<ProductImageDto>> SaveImagesToLocalDirectory(List<ProductImagesToAddDto> prodImgToAddDto,

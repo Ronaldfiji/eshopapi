@@ -16,6 +16,8 @@ namespace SchoolApiv2.Extentions
             CreateMap<Role, RoleDto>().ReverseMap();
             CreateMap<Course, CourseToEditDto>().ReverseMap();
             CreateMap<ProductImage, ProductImageDto>().ReverseMap();
+            CreateMap<Product, ProductDto>().ReverseMap();
+            CreateMap<Product, ProductToEditDto>().ReverseMap();
 
             /* CreateMap<Product, ProductCategoryDto>().ReverseMap()
                 .ForMember(dest => dest.Category.Name, opt => opt.MapFrom(src => src.CategoryName));

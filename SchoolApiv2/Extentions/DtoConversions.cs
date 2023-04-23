@@ -840,9 +840,7 @@ namespace SchoolApiv2.Extentions
         // product object conversion
 
         public static ProductDto ConvertToDto(this Product product)
-        {
-
-
+        {            
             return new ProductDto
             {
                 ID = product.ID,
@@ -856,7 +854,7 @@ namespace SchoolApiv2.Extentions
                 ImageURL = product.ProductImages.ToList().FirstOrDefault()?.Path ?? string.Empty,
                 ProductUnitID = product.ProductUnitID,                
                 IsOnPromotion = product.IsOnPromotion,
-                UserID= product.UserID,
+                UserID= product?.UserID,
                 CategoryDto = product?.Category != null ? new CategoryDto {
                     ID = product.Category.ID, Code = product.Category.Code, Name = product.Category.Name,
                     Description = product.Category.Description, CreatedBy = product.Category.CreatedBy,UpdatedBy = product.Category.UpdatedBy,
@@ -880,7 +878,7 @@ namespace SchoolApiv2.Extentions
 
                 } : new SupplierDto(),
 
-                ProductImagesDto = (from prodImg in product.ProductImages
+                ProductImagesDto = (from prodImg in product?.ProductImages
                                     select new ProductImageDto
                                     {
                                         ID = prodImg.ID,
@@ -888,11 +886,11 @@ namespace SchoolApiv2.Extentions
                                         Path = prodImg.Path,
                                         Description = prodImg.Description,
                                     }).ToList(),
-                CreatedDate = product.CreatedDate,
-                ModifiedDate = product.ModifiedDate,
-                IPAddress = product.IPAddress,
-
-
+                CreatedDate = product?.CreatedDate,
+                ModifiedDate = product?.ModifiedDate,
+                CreatedBy= product?.CreatedBy,
+                UpdatedBy= product?.UpdatedBy,
+                IPAddress = product?.IPAddress,
             };
         }
 
@@ -915,6 +913,8 @@ namespace SchoolApiv2.Extentions
                         IsOnPromotion = product.IsOnPromotion,
                         CreatedDate = product.CreatedDate,
                         ModifiedDate = product.ModifiedDate,
+                        CreatedBy = product.CreatedBy,
+                        UpdatedBy = product.UpdatedBy,
                         IPAddress = product.IPAddress,
                         UserID = product?.UserID,
                         CategoryDto = product.Category != null ? new CategoryDto {
