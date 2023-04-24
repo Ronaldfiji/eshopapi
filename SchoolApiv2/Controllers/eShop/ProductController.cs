@@ -83,7 +83,36 @@ namespace SchoolApiv2.Controllers.eShop
             }
         }
 
+        // GET: api/<ProductController/GetProducts>
+        [HttpGet("GetProductsAll")]
+        public async Task<ActionResult> GetProductsAll()
+        {
+            try
+            {
+                var pagedProduct = await this.productRepository.GetProducts();
 
+                if (pagedProduct == null)
+                {
+                    return NotFound();
+                }
+                var productsDtos = pagedProduct.ConvertToDto();
+               
+                return Ok(productsDtos);
+            }
+            catch (FormatException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("LINQ query parameter expression"))
+                {
+                    return BadRequest(ex.Message);
+                }
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+
+            }
+        }
 
 
         // GET: api/<ProductController/GetProducts>

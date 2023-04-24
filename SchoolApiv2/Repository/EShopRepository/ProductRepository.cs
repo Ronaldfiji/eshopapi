@@ -46,9 +46,7 @@ namespace SchoolApiv2.Repository.EShopRepository
             try
             {
                 //var products = await GetAllAsync();
-                var products = await _context.Product
-                    .Include(p => p.Category)
-                    .Include(p => p.Supplier)
+                var products = await _context.Product                    
                     .Include(p => p.ProductImages)
                     .ToListAsync();
                 return products;
