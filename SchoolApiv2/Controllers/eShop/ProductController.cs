@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SchoolApiv2.Extentions;
 using SchoolApiv2.Repository;
 using SchoolApiv2.Repository.Contracts;
@@ -16,7 +17,7 @@ using System.Text.Json.Serialization;
 
 namespace SchoolApiv2.Controllers.eShop
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -31,8 +32,9 @@ namespace SchoolApiv2.Controllers.eShop
             logger = _logger;
             mapper = _mapper;
         }
-
+        
         // GET api/<ProductController>GetProduct/5
+        [AllowAnonymous]
         [HttpGet("GetProduct/{id:int}")]
         public async Task<ActionResult<ProductDto>> GetItem(int id)
         {
@@ -57,8 +59,9 @@ namespace SchoolApiv2.Controllers.eShop
         }
 
 
-       
+
         // GET: api/ProductController/Details/XXXXX
+        [AllowAnonymous]
         [HttpGet("GetByCode/{code}")]
         public async Task<ActionResult<ProductDto>> GetItem(string code)
         {
@@ -85,6 +88,7 @@ namespace SchoolApiv2.Controllers.eShop
 
         // GET: api/<ProductController/GetProducts>
         [HttpGet("GetProductsAll")]
+        [AllowAnonymous]
         public async Task<ActionResult> GetProductsAll()
         {
             try
@@ -117,6 +121,7 @@ namespace SchoolApiv2.Controllers.eShop
 
         // GET: api/<ProductController/GetProducts>
         [HttpGet("GetProducts")]
+        [AllowAnonymous]
         public async Task<ActionResult> Get([FromQuery] PagingRequestDto pagingRequestDto)
         {
             try
@@ -203,9 +208,7 @@ namespace SchoolApiv2.Controllers.eShop
             }
         }
 
-
-
-        
+               
         //PATCH: api/ProductController/UpdateProduct{int id, ProductToEditDto}           
         [HttpPatch("Update/{id:int}")]
         public async Task<ActionResult<ProductDto>> UpdateProduct(int id, ProductToEditDto productUpdateDto)
@@ -247,9 +250,13 @@ namespace SchoolApiv2.Controllers.eShop
                 {
                     throw;
                 }
-            }
+            }            
             catch (Exception ex)
             {
+                if (ex.Message.Contains("FOREIGN KEY constraint"))
+                {
+                    return BadRequest(ex.Message);
+                }
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
 
@@ -341,6 +348,7 @@ namespace SchoolApiv2.Controllers.eShop
         }
 
         // GET: api/ProductController/ProductByCategory/5
+        [AllowAnonymous]
         [HttpGet("ProductByCategory/{id:int}")]
         public async Task<ActionResult> GetProductByCategory(int id)
         {

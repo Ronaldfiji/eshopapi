@@ -124,8 +124,7 @@ namespace SchoolApiv2.Repository.EShopRepository
                 throw new Exception($"Failed to create product {nameof(ProductToEditDto)} in database " + $": {ex}");
             }
         }
-
-       
+               
 
         public async Task<Product> UpdateProduct(int id, ProductToEditDto ProductUpdateDto)
         {
@@ -142,6 +141,7 @@ namespace SchoolApiv2.Repository.EShopRepository
                     item.Description = ProductUpdateDto.Description;
                     item.Quantity = ProductUpdateDto.Quantity;
                     item.UnitPrice = ProductUpdateDto.UnitPrice;
+                    item.Rating= ProductUpdateDto.Rating;
                     item.CategoryID = ProductUpdateDto.CategoryID;
                     item.SupplierID = ProductUpdateDto.SupplierID;
                     item.ProductUnitID = ProductUpdateDto.ProductUnitID;
