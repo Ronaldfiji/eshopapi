@@ -4,14 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SchoolApiv2.Extentions;
-using SchoolApiv2.Repository;
-using SchoolApiv2.Repository.Contracts;
 using SchoolApiv2.Repository.Contracts.EShopRepositoryContracts;
 using SharedModel.Models;
 using SharedModel.Models.eShopModels;
 using SharedModel.Models.Util;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -370,6 +367,7 @@ namespace SchoolApiv2.Controllers.eShop
             }
         }
 
+        
     }
 }
 
