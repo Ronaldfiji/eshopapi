@@ -9,7 +9,7 @@ namespace SchoolApiv2.Repository.Contracts.EShopRepositoryContracts
     public interface IProductRepository : IGenericRepository<Product>
     {
         Task<Product?> GetProduct(int id);
-        Task<IEnumerable<Product>> GetProducts();
+        Task<PagedList<Product>> GetProductsOnly(PagingRequestDto pagingRequestDto);
         Task<PagedList<Product>> GetProducts(PagingRequestDto pagedRequestDto);
         Task<Product> CreateProduct(ProductToEditDto productAddDto);
         Task<Product> UpdateProduct(int id, ProductToEditDto ProductUpdateDto);

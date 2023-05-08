@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DataModel.Entity.EntityEShop;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -84,21 +85,27 @@ namespace SchoolApiv2.Controllers.eShop
         }
 
         // GET: api/<ProductController/GetProducts>
-        [HttpGet("GetProductsAll")]
+        [HttpGet("GetProductsOnly")]
         [AllowAnonymous]
-        public async Task<ActionResult> GetProductsAll()
+        public async Task<ActionResult> GetProductsOnly([FromQuery] PagingRequestDto pagingRequestDto)
         {
             try
-            {
-                var pagedProduct = await this.productRepository.GetProducts();
+            {                
+                var pagedProduct = await this.productRepository.GetProductsOnly(pagingRequestDto);
 
                 if (pagedProduct == null)
                 {
                     return NotFound();
                 }
                 var productsDtos = pagedProduct.ConvertToDto();
-               
-                return Ok(productsDtos);
+
+                var pagedResponse = new PagingResponse<ProductDto>
+                {
+                    Items = productsDtos.ToList(),
+                    MetaData = pagedProduct.MetaData,
+                };
+                return Ok(pagedResponse);
+             
             }
             catch (FormatException ex)
             {

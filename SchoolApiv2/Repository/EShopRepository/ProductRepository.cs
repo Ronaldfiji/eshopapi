@@ -41,15 +41,18 @@ namespace SchoolApiv2.Repository.EShopRepository
             }
         }
 
-        public async Task<IEnumerable<Product>> GetProducts()
+        public async Task<PagedList<Product>> GetProductsOnly(PagingRequestDto pagingRequestDto)
         {
             try
-            {
-                //var products = await GetAllAsync();
+            {                
                 var products = await _context.Product                    
                     .Include(p => p.ProductImages)
-                    .ToListAsync();
-                return products;
+                    .Skip((pagingRequestDto.PageNumber - 1) * pagingRequestDto.PageSize)
+                                .Take(pagingRequestDto.PageSize)
+                                .ToListAsync();
+
+                int ItemCount = await _context.Product.CountAsync();
+                return PagedList<Product>.ToPagedList(products, ItemCount, pagingRequestDto.PageNumber, pagingRequestDto.PageSize);
             }
             catch (Exception ex)
             {
