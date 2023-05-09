@@ -9,6 +9,7 @@ using SchoolApiv2.Repository.RepoExt.EShopRepoExt;
 using SharedModel.Models;
 using SharedModel.Models.eShopModels;
 using SharedModel.Models.Util;
+using System.Collections.Generic;
 
 namespace SchoolApiv2.Repository.EShopRepository
 {
@@ -45,7 +46,8 @@ namespace SchoolApiv2.Repository.EShopRepository
         {
             try
             {                
-                var products = await _context.Product                    
+                var products = await _context.Product
+                    .SearchProduct(pagingRequestDto)
                     .Include(p => p.ProductImages)
                     .Skip((pagingRequestDto.PageNumber - 1) * pagingRequestDto.PageSize)
                                 .Take(pagingRequestDto.PageSize)
@@ -366,9 +368,9 @@ namespace SchoolApiv2.Repository.EShopRepository
                 .Include(p => p.Category)
                 .Include(p => p.Supplier)
                 .Include(p => p.ProductImages)
-                .Where(p => p.CategoryID == CategoryId).ToListAsync();
-
+                .Where(p => p.CategoryID == CategoryId).ToListAsync(); 
             return products;
+        
 
 
         }

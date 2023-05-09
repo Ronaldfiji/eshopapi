@@ -364,7 +364,7 @@ namespace SchoolApiv2.Controllers.eShop
                     return NotFound();
                 }
 
-                var productByCategoryDto = productCategory.ConvertToDto();
+                var productByCategoryDto = productCategory.ConvertToDto();                
 
                 return Ok(productByCategoryDto);
             }
