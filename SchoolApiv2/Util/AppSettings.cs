@@ -16,5 +16,8 @@
         public string RefreshTokenExpirationMinutes { get; set; } = string.Empty;
         public string Issuer { get; set; } = string.Empty;
         public string Audience { get; set; } = string.Empty;
+
+        public string WindcaveAuthToken { get; set; } = string.Empty;
+        public string WindcaveBasePath { get; set; } = string.Empty;
     }
 }
