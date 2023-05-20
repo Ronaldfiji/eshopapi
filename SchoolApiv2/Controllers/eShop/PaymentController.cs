@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using SchoolApiv2.Repository.Contracts.EShopRepositoryContracts;
 using SchoolApiv2.Util;
+using SharedModel.Models.eShopModels;
 using System.Net.Http.Headers;
 using System.Text;
 
@@ -30,27 +31,43 @@ namespace SchoolApiv2.Controllers.eShop
             appsettings = _appSettings.Value;
         }
 
-        // GET: api/ProductController/GetPaymentToken/
+
+
+
+                // GET: api/ProductController/GetPaymentToken/
         [AllowAnonymous]
-        [HttpGet("GetPaymentSession")]
-        public async Task<ActionResult> GetPaymentSession()
+        [HttpPost("GetPaymentSession")]
+        public async Task<ActionResult> GetPaymentSession([FromBody] PaymentEditDto paymentEditDto)
         {
             try
-            {                
+            {
+                if (paymentEditDto == null || !ModelState.IsValid)
+                {
+                    return BadRequest($"{nameof(PaymentEditDto)} cannot be null or empty !");
+                }
+
                 var baseAddress = new Uri(appsettings.WindcaveBasePath);
 
                 using (var httpClient = new HttpClient { BaseAddress = baseAddress })
                 {
                     httpClient.DefaultRequestHeaders.TryAddWithoutValidation("authorization", $"Basic " + appsettings.WindcaveAuthToken);
-                      
-                    
-                    using (var content = new StringContent("{  \"type\": \"purchase\",  \"amount\": \"21.00\",  " +
-                        "\"currency\": \"FJD\",  \"merchantReference\": \"1234ABC\", " +
-                        " \"callbackUrls\": {    \"approved\": \"http://localhost:3000/payment/paymentsuccess\",  " +
-                        "  \"declined\": \"http://localhost:3000/payment/paymentsuccess\",  " +
-                        "  \"cancelled\": \"https://example.com/cancel\"  }, " +
-                        " \"notificationUrl\": \"https://example.com/txn_result?123\"}", 
-                        System.Text.Encoding.Default, "application/json"))
+                    using (var content = new StringContent("{  \"type\": \"" + paymentEditDto.Type + "\",  \"amount\": \"" + paymentEditDto.Amount + "\",  " +
+                         "\"currency\": \"" + paymentEditDto.Currency + "\",  \"merchantReference\": \"" + paymentEditDto.MerchantRef + "\", " +
+                         " \"callbackUrls\": {    \"approved\": \"" + paymentEditDto.CallbackUrls.Approved + "\",  " +
+                         "\"declined\": \"" + paymentEditDto.CallbackUrls.Declined + "\",  " +
+                         "\"cancelled\": \"" + paymentEditDto.CallbackUrls.Cancelled + "\"  }, " +
+                         "\"notificationUrl\": \"" + paymentEditDto.NotifyUrl + "\" ," +
+                         "\"customer\": {    \"firstName\": \"" + paymentEditDto.customerDto.FirstName + "\"," +
+                         "\"lastName\": \"" + paymentEditDto.customerDto.LastName + "\" ," +
+                         "\"email\": \"" + paymentEditDto.customerDto.Email + "\",  " +
+                         "\"phoneNumber\": \"" + paymentEditDto.customerDto.Phone + "\",    " +
+                         "\"homePhoneNumber\": \"" + paymentEditDto.customerDto.Phone + "\",    " +
+                         "\"account\": \"99999999\", " +
+                         " \"shipping\": {\"name\": \"" +  paymentEditDto.customerDto.FirstName + ' '+ paymentEditDto.customerDto.LastName +"\",   " +
+                         "\"address1\": \""+ paymentEditDto.customerDto.AddressLine1 +"\",      \"address2\": \"\",   " +
+                         "\"address3\": \"\",      \"city\": \""+ paymentEditDto.customerDto.City +"\",     " +
+                         "\"countryCode\": \"FJ\", \"postalCode\": \"00679\",\"phoneNumber\": \""+ paymentEditDto.customerDto.Phone + "\",\"state\": \"\"   }}}"
+                          ,System.Text.Encoding.Default, "application/json"))
                     {
                         using (var response = await httpClient.PostAsync("api/v1/sessions", content))
                         {
