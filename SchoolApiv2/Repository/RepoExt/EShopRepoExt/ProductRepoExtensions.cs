@@ -17,12 +17,12 @@ namespace SchoolApiv2.Repository.RepoExt.EShopRepoExt
 
             if (columnName == "code")
             {
-                return products.Where(p => p.Code.Contains(searchText));
+                return products.Where(p => p.Code.ToLower().Contains(searchText));
                 //products = products.FindAll(p => p.Code.Contains(pagedRequestDto.SearchTerm)).ToList();
             }
             if (columnName == "name")
             {
-                return products.Where(p => p.Name.Contains(searchText));
+                return products.Where(p => p.Name.ToLower().Contains(searchText));
             }
             if (columnName == "userid")
             {

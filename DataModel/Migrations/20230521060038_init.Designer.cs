@@ -3,7 +3,6 @@ using System;
 using DataModel.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -12,66 +11,60 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataModel.Migrations
 {
     [DbContext(typeof(SchoolDBContext))]
-    [Migration("20230423084016_init-23-04-2023")]
-    partial class init23042023
+    [Migration("20230521060038_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.2")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
             modelBuilder.Entity("DataModel.Entity.Assessment", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("SubjectID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("TermID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("UserID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Weight")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
@@ -89,7 +82,7 @@ namespace DataModel.Migrations
                             ID = 1,
                             Code = "Y11BIOST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5576),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6035),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 11 Biology",
                             SubjectID = 1,
@@ -102,7 +95,7 @@ namespace DataModel.Migrations
                             ID = 2,
                             Code = "Y11BIOST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5578),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6037),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 11 Biology",
                             SubjectID = 1,
@@ -115,7 +108,7 @@ namespace DataModel.Migrations
                             ID = 3,
                             Code = "Y11BIOST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5579),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6039),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 11 Biology",
                             SubjectID = 1,
@@ -128,7 +121,7 @@ namespace DataModel.Migrations
                             ID = 4,
                             Code = "Y11BIOST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5580),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6040),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 11 Biology",
                             SubjectID = 1,
@@ -141,7 +134,7 @@ namespace DataModel.Migrations
                             ID = 5,
                             Code = "Y11BIOST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5581),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6041),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 11 Biology",
                             SubjectID = 1,
@@ -154,7 +147,7 @@ namespace DataModel.Migrations
                             ID = 6,
                             Code = "Y11BIOST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5582),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6043),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 11 Biology",
                             SubjectID = 1,
@@ -167,7 +160,7 @@ namespace DataModel.Migrations
                             ID = 7,
                             Code = "Y11BIOPR1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5583),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6045),
                             IPAddress = "230.145.124.210",
                             Name = "Project 1, Year 11 Biology",
                             SubjectID = 1,
@@ -180,7 +173,7 @@ namespace DataModel.Migrations
                             ID = 8,
                             Code = "Y11BIOPR2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5584),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6047),
                             IPAddress = "230.145.124.210",
                             Name = "Project 2, Year 11 Biology",
                             SubjectID = 1,
@@ -193,7 +186,7 @@ namespace DataModel.Migrations
                             ID = 9,
                             Code = "Y12ENGST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5585),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6048),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 12 English",
                             SubjectID = 2,
@@ -206,7 +199,7 @@ namespace DataModel.Migrations
                             ID = 10,
                             Code = "Y12ENGST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5586),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6050),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 12 English",
                             SubjectID = 2,
@@ -219,7 +212,7 @@ namespace DataModel.Migrations
                             ID = 11,
                             Code = "Y12ENGST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5588),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6051),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 12 English",
                             SubjectID = 2,
@@ -232,7 +225,7 @@ namespace DataModel.Migrations
                             ID = 12,
                             Code = "Y12ENGST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5589),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6052),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 12 English",
                             SubjectID = 2,
@@ -245,7 +238,7 @@ namespace DataModel.Migrations
                             ID = 13,
                             Code = "Y12ENGST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5590),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6054),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 12 English",
                             SubjectID = 2,
@@ -258,7 +251,7 @@ namespace DataModel.Migrations
                             ID = 14,
                             Code = "Y12ENGST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5592),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6055),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 12 English",
                             SubjectID = 2,
@@ -271,7 +264,7 @@ namespace DataModel.Migrations
                             ID = 15,
                             Code = "Y12ENGST7",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5593),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6057),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 7, Year 12 English",
                             SubjectID = 2,
@@ -284,7 +277,7 @@ namespace DataModel.Migrations
                             ID = 16,
                             Code = "Y12ENGST8",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5594),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6058),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 8, Year 12 English",
                             SubjectID = 2,
@@ -297,7 +290,7 @@ namespace DataModel.Migrations
                             ID = 17,
                             Code = "Y12ENGST9",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5595),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6060),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 9, Year 12 English",
                             SubjectID = 2,
@@ -310,7 +303,7 @@ namespace DataModel.Migrations
                             ID = 18,
                             Code = "Y11MATST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5596),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6062),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 11 Mathmatics",
                             SubjectID = 3,
@@ -323,7 +316,7 @@ namespace DataModel.Migrations
                             ID = 19,
                             Code = "Y11MATST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5597),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6064),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 11 Mathmatics",
                             SubjectID = 3,
@@ -336,7 +329,7 @@ namespace DataModel.Migrations
                             ID = 20,
                             Code = "Y11MATST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5599),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6065),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 11 Mathmatics",
                             SubjectID = 3,
@@ -349,7 +342,7 @@ namespace DataModel.Migrations
                             ID = 21,
                             Code = "Y11MATST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5603),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6066),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 11 Mathmatics",
                             SubjectID = 3,
@@ -362,7 +355,7 @@ namespace DataModel.Migrations
                             ID = 22,
                             Code = "Y11MATST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5604),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6068),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 11 Mathmatics",
                             SubjectID = 3,
@@ -375,7 +368,7 @@ namespace DataModel.Migrations
                             ID = 23,
                             Code = "Y11MATST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5608),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6070),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 11 Mathmatics",
                             SubjectID = 3,
@@ -388,7 +381,7 @@ namespace DataModel.Migrations
                             ID = 24,
                             Code = "Y11CHMST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5609),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6079),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 11 Chemistry",
                             SubjectID = 4,
@@ -401,7 +394,7 @@ namespace DataModel.Migrations
                             ID = 25,
                             Code = "Y11CHMST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5610),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6081),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 11 Chemistry",
                             SubjectID = 4,
@@ -414,7 +407,7 @@ namespace DataModel.Migrations
                             ID = 26,
                             Code = "Y11CHMST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5611),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6084),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 11 Chemistry",
                             SubjectID = 4,
@@ -427,7 +420,7 @@ namespace DataModel.Migrations
                             ID = 27,
                             Code = "Y11CHMST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5612),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6089),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 11 Chemistry",
                             SubjectID = 4,
@@ -440,7 +433,7 @@ namespace DataModel.Migrations
                             ID = 28,
                             Code = "Y11CHMST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5613),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6090),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 11 Chemistry",
                             SubjectID = 4,
@@ -453,7 +446,7 @@ namespace DataModel.Migrations
                             ID = 29,
                             Code = "Y11CHMST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5614),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6091),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 11 Chemistry",
                             SubjectID = 4,
@@ -466,7 +459,7 @@ namespace DataModel.Migrations
                             ID = 30,
                             Code = "Y09MATST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5616),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6093),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -479,7 +472,7 @@ namespace DataModel.Migrations
                             ID = 31,
                             Code = "Y09MATST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5617),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6094),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -492,7 +485,7 @@ namespace DataModel.Migrations
                             ID = 32,
                             Code = "Y09MATST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5618),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6096),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -505,7 +498,7 @@ namespace DataModel.Migrations
                             ID = 33,
                             Code = "Y09MATST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5619),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6098),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -518,7 +511,7 @@ namespace DataModel.Migrations
                             ID = 34,
                             Code = "Y09MATST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5620),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6099),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -531,7 +524,7 @@ namespace DataModel.Migrations
                             ID = 35,
                             Code = "Y09MATST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5621),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6101),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -544,7 +537,7 @@ namespace DataModel.Migrations
                             ID = 36,
                             Code = "Y09MATST7",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5622),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6103),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 7, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -557,7 +550,7 @@ namespace DataModel.Migrations
                             ID = 37,
                             Code = "Y09MATPR1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5623),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6105),
                             IPAddress = "230.145.124.210",
                             Name = "Project 1, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -570,7 +563,7 @@ namespace DataModel.Migrations
                             ID = 38,
                             Code = "Y09MATPR2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5624),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6107),
                             IPAddress = "230.145.124.210",
                             Name = "Project 2, Year 09 Mathmatics",
                             SubjectID = 5,
@@ -583,7 +576,7 @@ namespace DataModel.Migrations
                             ID = 39,
                             Code = "Y09ENGST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5625),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6109),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 09 English",
                             SubjectID = 6,
@@ -596,7 +589,7 @@ namespace DataModel.Migrations
                             ID = 40,
                             Code = "Y09ENGST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5627),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6111),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 09 English",
                             SubjectID = 6,
@@ -609,7 +602,7 @@ namespace DataModel.Migrations
                             ID = 41,
                             Code = "Y09ENGST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5628),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6113),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 09 English",
                             SubjectID = 6,
@@ -622,7 +615,7 @@ namespace DataModel.Migrations
                             ID = 42,
                             Code = "Y09ENGST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5629),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6114),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 09 English",
                             SubjectID = 6,
@@ -635,7 +628,7 @@ namespace DataModel.Migrations
                             ID = 43,
                             Code = "Y09ENGST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5630),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6115),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 09 English",
                             SubjectID = 6,
@@ -648,7 +641,7 @@ namespace DataModel.Migrations
                             ID = 44,
                             Code = "Y09ENGPR1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5631),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6117),
                             IPAddress = "230.145.124.210",
                             Name = "Project 1, Year 09 English",
                             SubjectID = 6,
@@ -661,7 +654,7 @@ namespace DataModel.Migrations
                             ID = 45,
                             Code = "Y09ENGST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5632),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6119),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 09 English",
                             SubjectID = 6,
@@ -674,7 +667,7 @@ namespace DataModel.Migrations
                             ID = 46,
                             Code = "Y09ENGST7",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5633),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6120),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 7, Year 09 English",
                             SubjectID = 6,
@@ -687,7 +680,7 @@ namespace DataModel.Migrations
                             ID = 47,
                             Code = "Y09ENGPR2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5634),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6122),
                             IPAddress = "230.145.124.210",
                             Name = "Project 2, Year 09 English",
                             SubjectID = 6,
@@ -700,7 +693,7 @@ namespace DataModel.Migrations
                             ID = 48,
                             Code = "Y09BSCST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5635),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6123),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 09 Basic Science",
                             SubjectID = 7,
@@ -713,7 +706,7 @@ namespace DataModel.Migrations
                             ID = 49,
                             Code = "Y09BSCST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5637),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6125),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 09 Basic Science",
                             SubjectID = 7,
@@ -726,7 +719,7 @@ namespace DataModel.Migrations
                             ID = 50,
                             Code = "Y09BSCRT1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5639),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6126),
                             IPAddress = "230.145.124.210",
                             Name = "Report 1, Year 09 Basic Science",
                             SubjectID = 7,
@@ -739,7 +732,7 @@ namespace DataModel.Migrations
                             ID = 51,
                             Code = "Y09BSCST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5640),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6128),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 09 Basic Science",
                             SubjectID = 7,
@@ -752,7 +745,7 @@ namespace DataModel.Migrations
                             ID = 52,
                             Code = "Y09BSCST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5641),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6129),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 09 Basic Science",
                             SubjectID = 7,
@@ -765,7 +758,7 @@ namespace DataModel.Migrations
                             ID = 53,
                             Code = "Y09BSCRT2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5642),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6131),
                             IPAddress = "230.145.124.210",
                             Name = "Report 2, Year 09 Basic Science",
                             SubjectID = 7,
@@ -778,7 +771,7 @@ namespace DataModel.Migrations
                             ID = 54,
                             Code = "Y09BSCST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5643),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6133),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 09 Basic Science",
                             SubjectID = 7,
@@ -791,7 +784,7 @@ namespace DataModel.Migrations
                             ID = 55,
                             Code = "Y09BSCST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5644),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6134),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 09 Basic Science",
                             SubjectID = 7,
@@ -804,7 +797,7 @@ namespace DataModel.Migrations
                             ID = 56,
                             Code = "Y09BSCRT3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5645),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6136),
                             IPAddress = "230.145.124.210",
                             Name = "Report 3, Year 09 Basic Science",
                             SubjectID = 7,
@@ -817,7 +810,7 @@ namespace DataModel.Migrations
                             ID = 57,
                             Code = "Y09TDST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5646),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6137),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 7, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -830,7 +823,7 @@ namespace DataModel.Migrations
                             ID = 58,
                             Code = "Y09TDST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5647),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6139),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -843,7 +836,7 @@ namespace DataModel.Migrations
                             ID = 59,
                             Code = "Y09TDST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5648),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6140),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -856,7 +849,7 @@ namespace DataModel.Migrations
                             ID = 60,
                             Code = "Y09TDST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5650),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6142),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -869,7 +862,7 @@ namespace DataModel.Migrations
                             ID = 61,
                             Code = "Y09TDST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5651),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6143),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -882,7 +875,7 @@ namespace DataModel.Migrations
                             ID = 62,
                             Code = "Y09TDST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5652),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6145),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -895,7 +888,7 @@ namespace DataModel.Migrations
                             ID = 63,
                             Code = "Y09TDST7",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5653),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6146),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 7, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -908,7 +901,7 @@ namespace DataModel.Migrations
                             ID = 64,
                             Code = "Y09TDST8",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5654),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6148),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 8, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -921,7 +914,7 @@ namespace DataModel.Migrations
                             ID = 65,
                             Code = "Y09TDPR1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5655),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6150),
                             IPAddress = "230.145.124.210",
                             Name = "Project 1, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -934,7 +927,7 @@ namespace DataModel.Migrations
                             ID = 66,
                             Code = "Y09TDPR2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5656),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6152),
                             IPAddress = "230.145.124.210",
                             Name = "Project 2, Year 09 Technical Drawing",
                             SubjectID = 8,
@@ -947,7 +940,7 @@ namespace DataModel.Migrations
                             ID = 67,
                             Code = "Y09AGSST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5657),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6154),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 09 Agriculture Science",
                             SubjectID = 9,
@@ -960,7 +953,7 @@ namespace DataModel.Migrations
                             ID = 68,
                             Code = "Y09AGSST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5658),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6155),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 09 Agriculture Science",
                             SubjectID = 9,
@@ -973,7 +966,7 @@ namespace DataModel.Migrations
                             ID = 69,
                             Code = "Y09AGSST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5660),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6157),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 09 Agriculture Science",
                             SubjectID = 9,
@@ -986,7 +979,7 @@ namespace DataModel.Migrations
                             ID = 70,
                             Code = "Y09AGSST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5661),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6159),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 09 Agriculture Science",
                             SubjectID = 9,
@@ -999,7 +992,7 @@ namespace DataModel.Migrations
                             ID = 71,
                             Code = "Y09AGSST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5663),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6164),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 09 Agriculture Science",
                             SubjectID = 9,
@@ -1012,7 +1005,7 @@ namespace DataModel.Migrations
                             ID = 72,
                             Code = "Y09AGSST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5665),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6165),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 09 Agriculture Science",
                             SubjectID = 9,
@@ -1025,7 +1018,7 @@ namespace DataModel.Migrations
                             ID = 73,
                             Code = "Y09AGSPR1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5666),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6167),
                             IPAddress = "230.145.124.210",
                             Name = "Project 1, Year 09 Agriculture Science",
                             SubjectID = 9,
@@ -1038,7 +1031,7 @@ namespace DataModel.Migrations
                             ID = 74,
                             Code = "Y09AGSPR2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5667),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6168),
                             IPAddress = "230.145.124.210",
                             Name = "Project 2, Year 09 Agriculture Science",
                             SubjectID = 9,
@@ -1051,7 +1044,7 @@ namespace DataModel.Migrations
                             ID = 75,
                             Code = "Y09ACCST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5668),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6170),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 09 Accounting",
                             SubjectID = 10,
@@ -1064,7 +1057,7 @@ namespace DataModel.Migrations
                             ID = 76,
                             Code = "Y09ACCST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5669),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6172),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 09 Accounting",
                             SubjectID = 10,
@@ -1077,7 +1070,7 @@ namespace DataModel.Migrations
                             ID = 77,
                             Code = "Y09ACCST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5670),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6173),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 09 Accounting",
                             SubjectID = 10,
@@ -1090,7 +1083,7 @@ namespace DataModel.Migrations
                             ID = 78,
                             Code = "Y09ACCST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5671),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6175),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 09 Accounting",
                             SubjectID = 10,
@@ -1103,7 +1096,7 @@ namespace DataModel.Migrations
                             ID = 79,
                             Code = "Y09ACCST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5677),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6180),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 09 Accounting",
                             SubjectID = 10,
@@ -1116,7 +1109,7 @@ namespace DataModel.Migrations
                             ID = 80,
                             Code = "Y09ACCST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5678),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6181),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 09 Accounting",
                             SubjectID = 10,
@@ -1129,7 +1122,7 @@ namespace DataModel.Migrations
                             ID = 81,
                             Code = "Y09ACCST7",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5680),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6184),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 7, Year 09 Accounting",
                             SubjectID = 10,
@@ -1142,7 +1135,7 @@ namespace DataModel.Migrations
                             ID = 82,
                             Code = "Y09ACCST8",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5681),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6186),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 8, Year 09 Accounting",
                             SubjectID = 10,
@@ -1155,7 +1148,7 @@ namespace DataModel.Migrations
                             ID = 83,
                             Code = "Y09ACCST9",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5682),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6188),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 9, Year 09 Accounting",
                             SubjectID = 10,
@@ -1168,7 +1161,7 @@ namespace DataModel.Migrations
                             ID = 84,
                             Code = "Y09ACCST10",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5683),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6190),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 10, Year 09 Accounting",
                             SubjectID = 10,
@@ -1181,7 +1174,7 @@ namespace DataModel.Migrations
                             ID = 85,
                             Code = "Y09ECOST1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5684),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6191),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 1, Year 09 Economics",
                             SubjectID = 11,
@@ -1194,7 +1187,7 @@ namespace DataModel.Migrations
                             ID = 86,
                             Code = "Y09ECOST2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5685),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6194),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 2, Year 09 Economics",
                             SubjectID = 11,
@@ -1207,7 +1200,7 @@ namespace DataModel.Migrations
                             ID = 87,
                             Code = "Y09ECOST3",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5689),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6195),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 3, Year 09 Economics",
                             SubjectID = 11,
@@ -1220,7 +1213,7 @@ namespace DataModel.Migrations
                             ID = 88,
                             Code = "Y09ECOST4",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5690),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6203),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 4, Year 09 Economics",
                             SubjectID = 11,
@@ -1233,7 +1226,7 @@ namespace DataModel.Migrations
                             ID = 89,
                             Code = "Y09ECOST5",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5691),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6205),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 5, Year 09 Economics",
                             SubjectID = 11,
@@ -1246,7 +1239,7 @@ namespace DataModel.Migrations
                             ID = 90,
                             Code = "Y09ECOST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5692),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6206),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 09 Economics",
                             SubjectID = 11,
@@ -1259,7 +1252,7 @@ namespace DataModel.Migrations
                             ID = 91,
                             Code = "Y09ECOPR1",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5693),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6208),
                             IPAddress = "230.145.124.210",
                             Name = "Project 1, Year 09 Economics",
                             SubjectID = 11,
@@ -1272,7 +1265,7 @@ namespace DataModel.Migrations
                             ID = 92,
                             Code = "Y09ECOST6",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5694),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6209),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 6, Year 09 Economics",
                             SubjectID = 11,
@@ -1285,7 +1278,7 @@ namespace DataModel.Migrations
                             ID = 93,
                             Code = "Y09ECOST7",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5695),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6212),
                             IPAddress = "230.145.124.210",
                             Name = "Short Test 7, Year 09 Economics",
                             SubjectID = 11,
@@ -1298,7 +1291,7 @@ namespace DataModel.Migrations
                             ID = 94,
                             Code = "Y09ECOPR2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5696),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6214),
                             IPAddress = "230.145.124.210",
                             Name = "Project 2, Year 09 Economics",
                             SubjectID = 11,
@@ -1312,51 +1305,49 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("SchoolId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SchoolYearId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SeatingCapacity")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -1372,7 +1363,7 @@ namespace DataModel.Migrations
                             ID = 1,
                             Code = "3A",
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5329),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5591),
                             Description = "Form 3 A block info",
                             IPAddress = "",
                             Name = "Form 3 A",
@@ -1386,7 +1377,7 @@ namespace DataModel.Migrations
                             ID = 2,
                             Code = "4B",
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5330),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5594),
                             Description = "Form 4 B block info",
                             IPAddress = "",
                             Name = "Form 4 B",
@@ -1401,45 +1392,43 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("SchoolYearId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -1453,7 +1442,7 @@ namespace DataModel.Migrations
                             ID = 1,
                             Code = "Y11SC",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5412),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5750),
                             Description = "Year 11 Science",
                             IPAddress = "255.255.255.1",
                             Name = "Y11Science",
@@ -1465,7 +1454,7 @@ namespace DataModel.Migrations
                             ID = 2,
                             Code = "Y12SC",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5415),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5755),
                             Description = "Year 12 Science",
                             IPAddress = "255.255.255.1",
                             Name = "Y12Science",
@@ -1477,7 +1466,7 @@ namespace DataModel.Migrations
                             ID = 3,
                             Code = "Y09CO",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5416),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5757),
                             Description = "Year 09 Commercial",
                             IPAddress = "255.255.255.1",
                             Name = "Y09Commercial",
@@ -1489,7 +1478,7 @@ namespace DataModel.Migrations
                             ID = 4,
                             Code = "Y09EN",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5418),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5759),
                             Description = "Year 09 Engineering",
                             IPAddress = "255.255.255.1",
                             Name = "Y09Engineering",
@@ -1501,7 +1490,7 @@ namespace DataModel.Migrations
                             ID = 5,
                             Code = "Y09SC",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5419),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5760),
                             Description = "Year 09 Science",
                             IPAddress = "255.255.255.1",
                             Name = "Y09Science",
@@ -1513,7 +1502,7 @@ namespace DataModel.Migrations
                             ID = 6,
                             Code = "Y09SC2",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5420),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5762),
                             Description = "Year 09 Science II",
                             IPAddress = "255.255.255.1",
                             Name = "Y09Science II",
@@ -1525,7 +1514,7 @@ namespace DataModel.Migrations
                             ID = 7,
                             Code = "Y11CO",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5422),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5765),
                             Description = "Year 11 Commercial",
                             IPAddress = "255.255.255.1",
                             Name = "Y11Commercial",
@@ -1537,7 +1526,7 @@ namespace DataModel.Migrations
                             ID = 8,
                             Code = "Y11EN",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5423),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5767),
                             Description = "Year 11 Engineering",
                             IPAddress = "255.255.255.1",
                             Name = "Y11Engineering",
@@ -1549,7 +1538,7 @@ namespace DataModel.Migrations
                             ID = 9,
                             Code = "Y12CO",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5424),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5769),
                             Description = "Year 12 Commercial",
                             IPAddress = "255.255.255.1",
                             Name = "Y12Commercial",
@@ -1561,28 +1550,28 @@ namespace DataModel.Migrations
             modelBuilder.Entity("DataModel.Entity.CourseSubject", b =>
                 {
                     b.Property<int>("CourseId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SubjectId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("CourseId", "SubjectId");
 
@@ -1596,7 +1585,7 @@ namespace DataModel.Migrations
                             CourseId = 1,
                             SubjectId = 1,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5541),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5978),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1605,7 +1594,7 @@ namespace DataModel.Migrations
                             CourseId = 1,
                             SubjectId = 3,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5544),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5982),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1614,7 +1603,7 @@ namespace DataModel.Migrations
                             CourseId = 1,
                             SubjectId = 4,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5544),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5983),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1623,7 +1612,7 @@ namespace DataModel.Migrations
                             CourseId = 2,
                             SubjectId = 2,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5545),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5984),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1632,7 +1621,7 @@ namespace DataModel.Migrations
                             CourseId = 3,
                             SubjectId = 5,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5546),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5985),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1641,7 +1630,7 @@ namespace DataModel.Migrations
                             CourseId = 3,
                             SubjectId = 6,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5547),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5986),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1650,7 +1639,7 @@ namespace DataModel.Migrations
                             CourseId = 3,
                             SubjectId = 7,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5548),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5987),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1659,7 +1648,7 @@ namespace DataModel.Migrations
                             CourseId = 3,
                             SubjectId = 10,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5548),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5988),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1668,7 +1657,7 @@ namespace DataModel.Migrations
                             CourseId = 3,
                             SubjectId = 11,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5549),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5989),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1677,7 +1666,7 @@ namespace DataModel.Migrations
                             CourseId = 4,
                             SubjectId = 5,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5550),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5990),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1686,7 +1675,7 @@ namespace DataModel.Migrations
                             CourseId = 4,
                             SubjectId = 6,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5551),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5991),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1695,7 +1684,7 @@ namespace DataModel.Migrations
                             CourseId = 4,
                             SubjectId = 7,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5552),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5992),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1704,7 +1693,7 @@ namespace DataModel.Migrations
                             CourseId = 4,
                             SubjectId = 8,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5552),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5993),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1713,7 +1702,7 @@ namespace DataModel.Migrations
                             CourseId = 4,
                             SubjectId = 9,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5553),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5994),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1722,7 +1711,7 @@ namespace DataModel.Migrations
                             CourseId = 5,
                             SubjectId = 5,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5554),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5995),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1731,7 +1720,7 @@ namespace DataModel.Migrations
                             CourseId = 5,
                             SubjectId = 6,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5555),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5996),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1740,7 +1729,7 @@ namespace DataModel.Migrations
                             CourseId = 5,
                             SubjectId = 7,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5555),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5997),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1749,7 +1738,7 @@ namespace DataModel.Migrations
                             CourseId = 6,
                             SubjectId = 5,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5556),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5998),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1758,7 +1747,7 @@ namespace DataModel.Migrations
                             CourseId = 6,
                             SubjectId = 6,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5557),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5999),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1767,7 +1756,7 @@ namespace DataModel.Migrations
                             CourseId = 6,
                             SubjectId = 7,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5558),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6000),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1776,7 +1765,7 @@ namespace DataModel.Migrations
                             CourseId = 6,
                             SubjectId = 9,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5559),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6001),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1785,7 +1774,7 @@ namespace DataModel.Migrations
                             CourseId = 7,
                             SubjectId = 3,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5559),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6007),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1794,7 +1783,7 @@ namespace DataModel.Migrations
                             CourseId = 8,
                             SubjectId = 3,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5560),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6008),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         },
@@ -1803,7 +1792,7 @@ namespace DataModel.Migrations
                             CourseId = 9,
                             SubjectId = 2,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5561),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6009),
                             IPAddress = "245.36.210.199",
                             UpdatedBy = ""
                         });
@@ -1813,48 +1802,46 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CourseId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("DateCompleted")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("DateEnrolment")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("DateWithdrawal")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("Passed")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SchoolId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
@@ -1872,51 +1859,51 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(12, 2)
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ProductID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<ushort>("Quantity")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("SubTotal")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(12, 2)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -1927,46 +1914,44 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Icon")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -1981,7 +1966,7 @@ namespace DataModel.Migrations
                             ID = 1,
                             Code = "CAT0001",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5739),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6293),
                             Description = "Head Phones Category",
                             IPAddress = "255.255.255.1",
                             Icon = "fa fa-headphones",
@@ -1993,7 +1978,7 @@ namespace DataModel.Migrations
                             ID = 2,
                             Code = "CAT0002",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5741),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6295),
                             Description = "Computers & Tablets Category",
                             IPAddress = "255.255.255.1",
                             Icon = "fa fa-desktop",
@@ -2005,7 +1990,7 @@ namespace DataModel.Migrations
                             ID = 3,
                             Code = "CAT0003",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5742),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6297),
                             Description = "Phones & Wearables Category",
                             IPAddress = "255.255.255.1",
                             Icon = "fa fa-desktop",
@@ -2017,7 +2002,7 @@ namespace DataModel.Migrations
                             ID = 4,
                             Code = "CAT0004",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5743),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6298),
                             Description = "TV, Blu-ray & Home Theatre Category",
                             IPAddress = "255.255.255.1",
                             Icon = "fa fa-desktop",
@@ -2029,7 +2014,7 @@ namespace DataModel.Migrations
                             ID = 5,
                             Code = "CAT0005",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5744),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6300),
                             Description = "Kitchen appliance Category",
                             IPAddress = "255.255.255.1",
                             Icon = "fa fa-desktop",
@@ -2041,7 +2026,7 @@ namespace DataModel.Migrations
                             ID = 6,
                             Code = "CAT0006",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5745),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6301),
                             Description = "Cattle & Sheep Category",
                             IPAddress = "255.255.255.1",
                             Icon = "fa fa-desktop",
@@ -2053,7 +2038,7 @@ namespace DataModel.Migrations
                             ID = 7,
                             Code = "CAT0007",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5746),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6303),
                             Description = "Items under fashion and jewelry",
                             IPAddress = "255.255.255.1",
                             Icon = "fa fa-desktop",
@@ -2066,85 +2051,83 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("AddressLine1")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("AddressLine2")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Country")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PictureUrl")
                         .IsRequired()
                         .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("State")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -2155,53 +2138,51 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("CashOut")
                         .HasPrecision(9, 2)
-                        .HasColumnType("decimal(9,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsSuccess")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PaymentRef")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("PaymentsType")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("TotalDue")
                         .HasPrecision(9, 2)
-                        .HasColumnType("decimal(9,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("TotalReceived")
                         .HasPrecision(9, 2)
-                        .HasColumnType("decimal(9,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -2212,70 +2193,68 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CategoryID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ImageURL")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsOnPromotion")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("ProductUnitID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Rating")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("SupplierID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("UnitPrice")
                         .HasPrecision(9, 2)
-                        .HasColumnType("decimal(9,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("UserID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
@@ -2299,7 +2278,7 @@ namespace DataModel.Migrations
                             CategoryID = 1,
                             Code = "PR0001",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5808),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6403),
                             Description = "Head phone for professionals",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2317,7 +2296,7 @@ namespace DataModel.Migrations
                             CategoryID = 1,
                             Code = "PR0002",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5812),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6409),
                             Description = "Great gear for professionals, ultra sound quality",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2335,7 +2314,7 @@ namespace DataModel.Migrations
                             CategoryID = 3,
                             Code = "PR0003",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5813),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6411),
                             Description = "Phone and time on your wrist",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2353,7 +2332,7 @@ namespace DataModel.Migrations
                             CategoryID = 5,
                             Code = "PR0004",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5818),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6415),
                             Description = "With its spacious capacity and convenient design, the Electrolux 609L UltimateTaste 900 French Door Fridge with Ice & Water Dispenser - Natural Stainless is a practical storage space option for busy kitchens.",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2371,7 +2350,7 @@ namespace DataModel.Migrations
                             CategoryID = 5,
                             Code = "PR0005",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5821),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6418),
                             Description = "Samsung 40L Microwave Oven - Stainless Steel\r\nThis stylish Samsung Solo microwave features 40L capacity, auto defrost function, one minute plus, sensor technology and more.\r\n",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2389,7 +2368,7 @@ namespace DataModel.Migrations
                             CategoryID = 4,
                             Code = "PR0006",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5823),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6425),
                             Description = "Experience lifelike visuals and enveloping sound as you watch your favourite movies and TV series with the Sony 83-inch XR MASTER series A90J 4K UHD OLED Google TV. It features a frameless design to minimise distractions and blend seamlessly with the rest of your room's décor scheme.",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2407,7 +2386,7 @@ namespace DataModel.Migrations
                             CategoryID = 4,
                             Code = "PR0007",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5824),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6428),
                             Description = "The JBL BAR 1300 11.1.4 Channel Dolby Atmos Soundbar with Detachable Speaker delivers an immersive sound experience that brings your movies, TV shows, and music to life. Featuring Dolby Atmos and DTS:X technology, this soundbar creates a 3D soundstage that surrounds you with sound from every angle. The powerful 10-inch wireless subwoofer delivers deep, punchy bass, while 4K pass-through with HDR 10 and Dolby Vision support ensures stunning picture quality. With its 6 up-firing speakers with Multibeam technology, multiple HDMI inputs, and Bluetooth and WiFi connectivity, this soundbar is the perfect addition to your home entertainment system.",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2425,7 +2404,7 @@ namespace DataModel.Migrations
                             CategoryID = 7,
                             Code = "PR0008",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5826),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6431),
                             Description = "Maximise your sparkle with our Pandora Timeless Pavé Double-row Ring. With warm 14k rose gold plating, this hand-finished ring features two rows of clear cubic zirconia around the centre and one row facing outwards around each side, creating a slightly rounded square profile that sparkles from every angle. Wear it on its own or stacked with other Timeless Pavé rings to create as bold of a look as you want.",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2443,7 +2422,7 @@ namespace DataModel.Migrations
                             CategoryID = 7,
                             Code = "PR0009",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5827),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6433),
                             Description = "Maximise your sparkle with our Pandora Timeless Pavé Double-row Ring. With warm 14k rose gold plating, this hand-finished ring features two rows of clear cubic zirconia around the centre and one row facing outwards around each side, creating a slightly rounded square profile that sparkles from every angle. Wear it on its own or stacked with other Timeless Pavé rings to create as bold of a look as you want.",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2461,7 +2440,7 @@ namespace DataModel.Migrations
                             CategoryID = 7,
                             Code = "PR0010",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5828),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6434),
                             Description = "Crafted with most peculiar pearls of south pacific",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2479,7 +2458,7 @@ namespace DataModel.Migrations
                             CategoryID = 7,
                             Code = "PR0011",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5830),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6437),
                             Description = "London Collection 18k diamond and pink sapphire dangle necklace. 18k rose gold round diamond necklace with heart shaped pink sapphire dangles. Total diamond weight 1.17cts, total sapphire weight 3.05cts.",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2497,7 +2476,7 @@ namespace DataModel.Migrations
                             CategoryID = 7,
                             Code = "PR0012",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5831),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6438),
                             Description = "<p>True magic is capturing a moment, freezing it in time to cherish forever. The locket is the keeper of those moments, with you always those feelings will remain. We designed the locket to bring all of life's precious moments close to your heart.  Wrap your memory in the metal of your choice for a truly special piece unique to you.</p><p>Select from solid sterling silver, 14k rose or gold plated 2 microns on silver </br>Charm quote - With you always </br>Oval locket is 16mm x 12mm in size </br>Upload up to two images, one for each side of the locket + 1 image for the box </br>Locket's image dimensions are 13mm x 8 mm </p>",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2515,7 +2494,7 @@ namespace DataModel.Migrations
                             CategoryID = 7,
                             Code = "PR0013",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5835),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6441),
                             Description = "<table><tr><td>Detail Information:</td><td></td></tr><tr><td style={{width:\"300px\"}}>Material:</td><td style={{width:\"300px\"}}>925 Sterling Silver;</td></tr><tr><td>Center Stone_Carat Weight:</td><td>1.0 Carat;</td></tr><tr><td>Center Stone Shape:</td><td>Round Cut(6.4mm);</td></tr><tr><td>Chain Length:</td><td>400mm (+50mm);</td></tr><tr><td>Plating Color:</td><td>White Gold;</td></tr><tr><td>Stone:</td><td>Moissanite;</td></tr></table>",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2533,7 +2512,7 @@ namespace DataModel.Migrations
                             CategoryID = 6,
                             Code = "PR0014",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5836),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6443),
                             Description = "One only female sheep for sale. Price is FJD$320.00. Located in Tavua and only pickup during working hours.",
                             IPAddress = "255.255.255.1",
                             ImageURL = "",
@@ -2551,42 +2530,40 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Path")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ProductID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -2599,7 +2576,7 @@ namespace DataModel.Migrations
                         {
                             ID = 1,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5855),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6481),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0001",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-a-1.webp",
@@ -2611,7 +2588,7 @@ namespace DataModel.Migrations
                         {
                             ID = 2,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5857),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6484),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0001",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-a-2.webp",
@@ -2623,7 +2600,7 @@ namespace DataModel.Migrations
                         {
                             ID = 3,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5858),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6485),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0001",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-a-3.webp",
@@ -2635,7 +2612,7 @@ namespace DataModel.Migrations
                         {
                             ID = 4,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5859),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6487),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0001",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-a-4.webp",
@@ -2647,7 +2624,7 @@ namespace DataModel.Migrations
                         {
                             ID = 5,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5860),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6488),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0001",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-a-5.webp",
@@ -2659,7 +2636,7 @@ namespace DataModel.Migrations
                         {
                             ID = 6,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5861),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6490),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0002",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-b-1.webp",
@@ -2671,7 +2648,7 @@ namespace DataModel.Migrations
                         {
                             ID = 7,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5862),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6492),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0002",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-b-2.webp",
@@ -2683,7 +2660,7 @@ namespace DataModel.Migrations
                         {
                             ID = 8,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5863),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6493),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0002",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-b-3.webp",
@@ -2695,7 +2672,7 @@ namespace DataModel.Migrations
                         {
                             ID = 9,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5864),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6495),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0002",
                             IPAddress = "45.241.250.15",
                             Name = "Headphone-b-4.webp",
@@ -2707,7 +2684,7 @@ namespace DataModel.Migrations
                         {
                             ID = 10,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5865),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6496),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0003",
                             IPAddress = "45.241.250.15",
                             Name = "WristWatch-a-1.webp",
@@ -2719,7 +2696,7 @@ namespace DataModel.Migrations
                         {
                             ID = 11,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5866),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6497),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0003",
                             IPAddress = "45.241.250.15",
                             Name = "WristWatch-a-2.webp",
@@ -2731,7 +2708,7 @@ namespace DataModel.Migrations
                         {
                             ID = 12,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5867),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6500),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0003",
                             IPAddress = "45.241.250.15",
                             Name = "WristWatch-a-3.webp",
@@ -2743,7 +2720,7 @@ namespace DataModel.Migrations
                         {
                             ID = 13,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5868),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6501),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0003",
                             IPAddress = "45.241.250.15",
                             Name = "WristWatch-a-4.webp",
@@ -2755,7 +2732,7 @@ namespace DataModel.Migrations
                         {
                             ID = 14,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5869),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6503),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0004",
                             IPAddress = "45.241.250.15",
                             Name = "PR0004Freeze1.webp",
@@ -2767,7 +2744,7 @@ namespace DataModel.Migrations
                         {
                             ID = 15,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5870),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6504),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0004",
                             IPAddress = "45.241.250.15",
                             Name = "PR0004Freeze2.jpg",
@@ -2779,7 +2756,7 @@ namespace DataModel.Migrations
                         {
                             ID = 16,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5871),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6505),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0004",
                             IPAddress = "45.241.250.15",
                             Name = "PR0004Freeze3.jpg",
@@ -2791,7 +2768,7 @@ namespace DataModel.Migrations
                         {
                             ID = 17,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5872),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6508),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0004",
                             IPAddress = "45.241.250.15",
                             Name = "PR0004Freeze4.jpg",
@@ -2803,7 +2780,7 @@ namespace DataModel.Migrations
                         {
                             ID = 18,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5873),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6510),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0004",
                             IPAddress = "45.241.250.15",
                             Name = "PR0004Freeze5.jpg",
@@ -2815,7 +2792,7 @@ namespace DataModel.Migrations
                         {
                             ID = 19,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5875),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6511),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0004",
                             IPAddress = "45.241.250.15",
                             Name = "PR0004Freeze6.jpg",
@@ -2827,7 +2804,7 @@ namespace DataModel.Migrations
                         {
                             ID = 20,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5876),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6513),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0005",
                             IPAddress = "45.241.250.15",
                             Name = "PR0005Micowave1.jpg",
@@ -2839,7 +2816,7 @@ namespace DataModel.Migrations
                         {
                             ID = 21,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5877),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6514),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0005",
                             IPAddress = "45.241.250.15",
                             Name = "PR0005Micowave2.jpg",
@@ -2851,7 +2828,7 @@ namespace DataModel.Migrations
                         {
                             ID = 22,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5878),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6516),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0005",
                             IPAddress = "45.241.250.15",
                             Name = "PR0005Micowave3.jpg",
@@ -2863,7 +2840,7 @@ namespace DataModel.Migrations
                         {
                             ID = 23,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5879),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6517),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0005",
                             IPAddress = "45.241.250.15",
                             Name = "PR0005Micowave4.jpg",
@@ -2875,7 +2852,7 @@ namespace DataModel.Migrations
                         {
                             ID = 24,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5880),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6519),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0006",
                             IPAddress = "45.241.250.15",
                             Name = "PR0006SonySmartTV_1.jpg",
@@ -2887,7 +2864,7 @@ namespace DataModel.Migrations
                         {
                             ID = 25,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5881),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6520),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0006",
                             IPAddress = "45.241.250.15",
                             Name = "PR0006SonySmartTV_2.jpg",
@@ -2899,7 +2876,7 @@ namespace DataModel.Migrations
                         {
                             ID = 26,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5882),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6522),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0006",
                             IPAddress = "45.241.250.15",
                             Name = "PR0006SonySmartTV_3.jpg",
@@ -2911,7 +2888,7 @@ namespace DataModel.Migrations
                         {
                             ID = 27,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5883),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6523),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0006",
                             IPAddress = "45.241.250.15",
                             Name = "PR0006SonySmartTV_4.jpg",
@@ -2923,7 +2900,7 @@ namespace DataModel.Migrations
                         {
                             ID = 28,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5884),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6524),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0006",
                             IPAddress = "45.241.250.15",
                             Name = "PR0006SonySmartTV_5.jpg",
@@ -2935,7 +2912,7 @@ namespace DataModel.Migrations
                         {
                             ID = 29,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5885),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6526),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0006",
                             IPAddress = "45.241.250.15",
                             Name = "PR0006SonySmartTV_6.jpg",
@@ -2947,7 +2924,7 @@ namespace DataModel.Migrations
                         {
                             ID = 30,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5887),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6527),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0006",
                             IPAddress = "45.241.250.15",
                             Name = "PR0006SonySmartTV_7.jpg",
@@ -2959,7 +2936,7 @@ namespace DataModel.Migrations
                         {
                             ID = 31,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5888),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6528),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0006",
                             IPAddress = "45.241.250.15",
                             Name = "PR0006SonySmartTV_8.jpg",
@@ -2971,7 +2948,7 @@ namespace DataModel.Migrations
                         {
                             ID = 32,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5889),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6529),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0007",
                             IPAddress = "45.241.250.15",
                             Name = "PR0007SoundBar_1.jpg",
@@ -2983,7 +2960,7 @@ namespace DataModel.Migrations
                         {
                             ID = 33,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5890),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6531),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0007",
                             IPAddress = "45.241.250.15",
                             Name = "PR0007SoundBar_2.jpg",
@@ -2995,7 +2972,7 @@ namespace DataModel.Migrations
                         {
                             ID = 34,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5891),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6532),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0007",
                             IPAddress = "45.241.250.15",
                             Name = "PR0007SoundBar_3.jpg",
@@ -3007,7 +2984,7 @@ namespace DataModel.Migrations
                         {
                             ID = 35,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5892),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6533),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0007",
                             IPAddress = "45.241.250.15",
                             Name = "PR0007SoundBar_4.jpg",
@@ -3019,7 +2996,7 @@ namespace DataModel.Migrations
                         {
                             ID = 36,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5893),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6535),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0007",
                             IPAddress = "45.241.250.15",
                             Name = "PR0007SoundBar_5.jpg",
@@ -3031,7 +3008,7 @@ namespace DataModel.Migrations
                         {
                             ID = 37,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5894),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6536),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0008",
                             IPAddress = "45.241.250.15",
                             Name = "PR0008diamondring8ck_1.webp",
@@ -3043,7 +3020,7 @@ namespace DataModel.Migrations
                         {
                             ID = 38,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5895),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6538),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0008",
                             IPAddress = "45.241.250.15",
                             Name = "PR0008diamondring8ck_2.webp",
@@ -3055,7 +3032,7 @@ namespace DataModel.Migrations
                         {
                             ID = 39,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5898),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6539),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0008",
                             IPAddress = "45.241.250.15",
                             Name = "PR0008diamondring8ck_3.gif",
@@ -3067,7 +3044,7 @@ namespace DataModel.Migrations
                         {
                             ID = 40,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5899),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6546),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0008",
                             IPAddress = "45.241.250.15",
                             Name = "PR0008diamondring8ck_4.webp",
@@ -3079,7 +3056,7 @@ namespace DataModel.Migrations
                         {
                             ID = 41,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5900),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6547),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0009",
                             IPAddress = "45.241.250.15",
                             Name = "PR0009moissanite-necklace_1.webp",
@@ -3091,7 +3068,7 @@ namespace DataModel.Migrations
                         {
                             ID = 42,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5902),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6549),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0009",
                             IPAddress = "45.241.250.15",
                             Name = "PR0009moissanite-necklace_2.webp",
@@ -3103,7 +3080,7 @@ namespace DataModel.Migrations
                         {
                             ID = 43,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5903),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6554),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0009",
                             IPAddress = "45.241.250.15",
                             Name = "PR0009moissanite-necklace_3.webp",
@@ -3115,7 +3092,7 @@ namespace DataModel.Migrations
                         {
                             ID = 44,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5903),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6556),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0009",
                             IPAddress = "45.241.250.15",
                             Name = "PR0009moissanite-necklace_4.webp",
@@ -3127,7 +3104,7 @@ namespace DataModel.Migrations
                         {
                             ID = 45,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5904),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6558),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0009",
                             IPAddress = "45.241.250.15",
                             Name = "PR0009moissanite-necklace_5.webp",
@@ -3139,7 +3116,7 @@ namespace DataModel.Migrations
                         {
                             ID = 46,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5905),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6559),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0010",
                             IPAddress = "45.241.250.15",
                             Name = "PR0010Pearls-natrualstone_1.jpg",
@@ -3151,7 +3128,7 @@ namespace DataModel.Migrations
                         {
                             ID = 47,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5906),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6560),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0010",
                             IPAddress = "45.241.250.15",
                             Name = "PR0010Pearls-natrualstone_2.jpg",
@@ -3163,7 +3140,7 @@ namespace DataModel.Migrations
                         {
                             ID = 48,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5907),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6562),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0010",
                             IPAddress = "45.241.250.15",
                             Name = "PR0010Pearls-natrualstone_3.jpg",
@@ -3175,7 +3152,7 @@ namespace DataModel.Migrations
                         {
                             ID = 49,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5908),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6563),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0010",
                             IPAddress = "45.241.250.15",
                             Name = "PR0010Pearls-natrualstone_4.jpg",
@@ -3187,7 +3164,7 @@ namespace DataModel.Migrations
                         {
                             ID = 50,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5912),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6564),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0010",
                             IPAddress = "45.241.250.15",
                             Name = "PR0010Pearls-natrualstone_5.jpg",
@@ -3199,7 +3176,7 @@ namespace DataModel.Migrations
                         {
                             ID = 51,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5913),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6565),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0011",
                             IPAddress = "45.241.250.15",
                             Name = "PR0011diamond-pink-sapphire_1.webp",
@@ -3211,7 +3188,7 @@ namespace DataModel.Migrations
                         {
                             ID = 52,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5915),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6567),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0012",
                             IPAddress = "45.241.250.15",
                             Name = "PR0012oval_locket_siler_1.webp",
@@ -3223,7 +3200,7 @@ namespace DataModel.Migrations
                         {
                             ID = 53,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5916),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6568),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0012",
                             IPAddress = "45.241.250.15",
                             Name = "PR0012oval_locket_siler_2.webp",
@@ -3235,7 +3212,7 @@ namespace DataModel.Migrations
                         {
                             ID = 54,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5917),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6569),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0012",
                             IPAddress = "45.241.250.15",
                             Name = "PR0012oval_locket_siler_3.webp",
@@ -3247,7 +3224,7 @@ namespace DataModel.Migrations
                         {
                             ID = 55,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5918),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6570),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0012",
                             IPAddress = "45.241.250.15",
                             Name = "PR0012oval_locket_siler_4.webp",
@@ -3259,7 +3236,7 @@ namespace DataModel.Migrations
                         {
                             ID = 56,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5919),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6572),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0012",
                             IPAddress = "45.241.250.15",
                             Name = "PR0012oval_locket_siler_5.webp",
@@ -3271,7 +3248,7 @@ namespace DataModel.Migrations
                         {
                             ID = 57,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5920),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6573),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0013",
                             IPAddress = "45.241.250.15",
                             Name = "PR0013vintagerubyset_1.webp",
@@ -3283,7 +3260,7 @@ namespace DataModel.Migrations
                         {
                             ID = 58,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5921),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6574),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0013",
                             IPAddress = "45.241.250.15",
                             Name = "PR0013vintagerubyset_2.webp",
@@ -3295,7 +3272,7 @@ namespace DataModel.Migrations
                         {
                             ID = 59,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5922),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6576),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0013",
                             IPAddress = "45.241.250.15",
                             Name = "PR0013vintagerubyset_3.webp",
@@ -3307,7 +3284,7 @@ namespace DataModel.Migrations
                         {
                             ID = 60,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5923),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6577),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0013",
                             IPAddress = "45.241.250.15",
                             Name = "PR0013vintagerubyset_4.webp",
@@ -3319,7 +3296,7 @@ namespace DataModel.Migrations
                         {
                             ID = 61,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5924),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6579),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0013",
                             IPAddress = "45.241.250.15",
                             Name = "PR0013vintagerubyset_5.webp",
@@ -3331,7 +3308,7 @@ namespace DataModel.Migrations
                         {
                             ID = 62,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5925),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6580),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0014",
                             IPAddress = "45.241.250.15",
                             Name = "PR0014sheep_1.jpg",
@@ -3343,7 +3320,7 @@ namespace DataModel.Migrations
                         {
                             ID = 63,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5926),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6581),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0014",
                             IPAddress = "45.241.250.15",
                             Name = "PR0014sheep_2.jpg",
@@ -3355,7 +3332,7 @@ namespace DataModel.Migrations
                         {
                             ID = 64,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5927),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6583),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0014",
                             IPAddress = "45.241.250.15",
                             Name = "PR0014sheep_3.jpg",
@@ -3367,7 +3344,7 @@ namespace DataModel.Migrations
                         {
                             ID = 65,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5928),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6585),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0014",
                             IPAddress = "45.241.250.15",
                             Name = "PR0014sheep_4.jpg",
@@ -3379,7 +3356,7 @@ namespace DataModel.Migrations
                         {
                             ID = 66,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5929),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6586),
                             Description = "Full path of imageC:\\Projects\\Dev\\SchoolApiv2\\SchoolApiv2\\Resource\\Static\\Products\\PR0014",
                             IPAddress = "45.241.250.15",
                             Name = "PR0014sheep_5.jpg",
@@ -3393,38 +3370,36 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Unit")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<float>("Weight")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.HasKey("ID");
 
@@ -3435,7 +3410,7 @@ namespace DataModel.Migrations
                         {
                             ID = 1,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5786),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6366),
                             IPAddress = "255.255.255.1",
                             Name = "Kilogram",
                             Unit = "Kilogram",
@@ -3446,7 +3421,7 @@ namespace DataModel.Migrations
                         {
                             ID = 2,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5787),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6367),
                             IPAddress = "255.255.255.1",
                             Name = "Liter",
                             Unit = "Litre",
@@ -3457,7 +3432,7 @@ namespace DataModel.Migrations
                         {
                             ID = 3,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5788),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6369),
                             IPAddress = "255.255.255.1",
                             Name = "Meter",
                             Unit = "Meter",
@@ -3470,51 +3445,49 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("DiscountAmount")
                         .HasPrecision(9, 2)
-                        .HasColumnType("decimal(9,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("DiscountPercent")
                         .HasPrecision(9, 2)
-                        .HasColumnType("decimal(9,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("DiscountValue")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("Staus")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -3528,54 +3501,52 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(6)
-                        .HasColumnType("nvarchar(6)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -3589,7 +3560,7 @@ namespace DataModel.Migrations
                             City = "Lautoka",
                             Code = "SUP001",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5770),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6342),
                             Email = "info@punjas.com",
                             IPAddress = "255.255.255.1",
                             Name = "Punjas Fiji",
@@ -3603,7 +3574,7 @@ namespace DataModel.Migrations
                             City = "Lautoka",
                             Code = "SUP002",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5772),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6343),
                             Email = "info@lautokaeng.com",
                             IPAddress = "255.255.255.1",
                             Name = "Lautoka Engineering",
@@ -3617,7 +3588,7 @@ namespace DataModel.Migrations
                             City = "Lautoka",
                             Code = "SUP003",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5773),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6345),
                             Email = "request@asco.com.fj",
                             IPAddress = "255.255.255.1",
                             Name = "Asco Motors",
@@ -3631,7 +3602,7 @@ namespace DataModel.Migrations
                             City = "Tavua",
                             Code = "SUP004",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5774),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6348),
                             Email = "info@payaljewel.com",
                             IPAddress = "255.255.255.1",
                             Name = "Payal Jewelers, Tavua",
@@ -3644,33 +3615,31 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CourseID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("PrerequisiteCourseId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -3685,7 +3654,7 @@ namespace DataModel.Migrations
                             ID = 1,
                             CourseID = 2,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5722),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6263),
                             IPAddress = "230.145.124.210",
                             PrerequisiteCourseId = 1,
                             UpdatedBy = ""
@@ -3695,7 +3664,7 @@ namespace DataModel.Migrations
                             ID = 2,
                             CourseID = 9,
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5723),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(6265),
                             IPAddress = "230.145.124.210",
                             PrerequisiteCourseId = 7,
                             UpdatedBy = ""
@@ -3706,36 +3675,34 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("AddedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedByIp")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ExpiryDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsRevorked")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsUsed")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("JwtId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Token")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -3748,37 +3715,35 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -3789,7 +3754,7 @@ namespace DataModel.Migrations
                         {
                             ID = 1,
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 156, DateTimeKind.Utc).AddTicks(7355),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 447, DateTimeKind.Utc).AddTicks(6767),
                             Description = "User role",
                             IPAddress = "",
                             Name = "User",
@@ -3799,7 +3764,7 @@ namespace DataModel.Migrations
                         {
                             ID = 2,
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 156, DateTimeKind.Utc).AddTicks(7386),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 447, DateTimeKind.Utc).AddTicks(6793),
                             Description = "Admin role",
                             IPAddress = "",
                             Name = "Admin",
@@ -3809,7 +3774,7 @@ namespace DataModel.Migrations
                         {
                             ID = 3,
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 156, DateTimeKind.Utc).AddTicks(7393),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 447, DateTimeKind.Utc).AddTicks(6800),
                             Description = "HOD role",
                             IPAddress = "",
                             Name = "HOD",
@@ -3819,7 +3784,7 @@ namespace DataModel.Migrations
                         {
                             ID = 4,
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 156, DateTimeKind.Utc).AddTicks(7398),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 447, DateTimeKind.Utc).AddTicks(6806),
                             Description = "Manager role",
                             IPAddress = "",
                             Name = "Manager",
@@ -3829,7 +3794,7 @@ namespace DataModel.Migrations
                         {
                             ID = 5,
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 156, DateTimeKind.Utc).AddTicks(7403),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 447, DateTimeKind.Utc).AddTicks(6812),
                             Description = "Director role",
                             IPAddress = "",
                             Name = "Director",
@@ -3839,7 +3804,7 @@ namespace DataModel.Migrations
                         {
                             ID = 6,
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 156, DateTimeKind.Utc).AddTicks(7409),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 447, DateTimeKind.Utc).AddTicks(6819),
                             Description = "Seller role",
                             IPAddress = "",
                             Name = "Seller",
@@ -3851,65 +3816,63 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("District")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -3926,7 +3889,7 @@ namespace DataModel.Migrations
                             City = "Tavua",
                             Code = "SS1230",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5078),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1510),
                             Description = "School details",
                             District = "Ba",
                             Email = "tc@mail.com",
@@ -3942,7 +3905,7 @@ namespace DataModel.Migrations
                             City = "Tavua",
                             Code = "SS1231",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5081),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1514),
                             Description = "School details",
                             District = "Vatukoula",
                             Email = "nh@mail.com",
@@ -3958,7 +3921,7 @@ namespace DataModel.Migrations
                             City = "Lautoka",
                             Code = "SS1232",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5082),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1516),
                             Description = "School details",
                             District = "Ba",
                             Email = "cc@mail.com",
@@ -3974,7 +3937,7 @@ namespace DataModel.Migrations
                             City = "Ba",
                             Code = "SS1235",
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5084),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1519),
                             Description = "School details",
                             District = "Ba",
                             Email = "xc@mail.com",
@@ -3989,39 +3952,37 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Year")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
@@ -4036,7 +3997,7 @@ namespace DataModel.Migrations
                             ID = 1,
                             Code = "Y01",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5125),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1596),
                             Description = "This is year 1 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4047,7 +4008,7 @@ namespace DataModel.Migrations
                             ID = 2,
                             Code = "Y02",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5126),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1598),
                             Description = "This is year 2 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4058,7 +4019,7 @@ namespace DataModel.Migrations
                             ID = 3,
                             Code = "Y03",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5127),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1600),
                             Description = "This is year 3 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4069,7 +4030,7 @@ namespace DataModel.Migrations
                             ID = 4,
                             Code = "Y04",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5128),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1601),
                             Description = "This is year 4 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4080,7 +4041,7 @@ namespace DataModel.Migrations
                             ID = 5,
                             Code = "Y05",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5149),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1603),
                             Description = "This is year 5 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4091,7 +4052,7 @@ namespace DataModel.Migrations
                             ID = 6,
                             Code = "Y06",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5150),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1605),
                             Description = "This is year 6 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4102,7 +4063,7 @@ namespace DataModel.Migrations
                             ID = 7,
                             Code = "Y07",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5151),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1610),
                             Description = "This is year 7 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4113,7 +4074,7 @@ namespace DataModel.Migrations
                             ID = 8,
                             Code = "Y08",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5152),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1612),
                             Description = "This is year 8 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4124,7 +4085,7 @@ namespace DataModel.Migrations
                             ID = 9,
                             Code = "Y09",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5153),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1613),
                             Description = "This is year 9 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4135,7 +4096,7 @@ namespace DataModel.Migrations
                             ID = 10,
                             Code = "Y10",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5154),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1615),
                             Description = "This is year 10 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4146,7 +4107,7 @@ namespace DataModel.Migrations
                             ID = 11,
                             Code = "Y11",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5155),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1617),
                             Description = "This is year 11 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4157,7 +4118,7 @@ namespace DataModel.Migrations
                             ID = 12,
                             Code = "Y12",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5156),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1619),
                             Description = "This is year 12 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4168,7 +4129,7 @@ namespace DataModel.Migrations
                             ID = 13,
                             Code = "Y13",
                             CreatedBy = "RonaldAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5157),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1620),
                             Description = "This is year 13 student",
                             IPAddress = "20.36.323.366",
                             UpdatedBy = "",
@@ -4180,48 +4141,46 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("AssessedBy")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("AssessmentDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("AssessmentID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("EnrollmentID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal?>("Grade")
                         .HasPrecision(4, 2)
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("Weight")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
@@ -4237,45 +4196,43 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReferenceBook")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -4287,7 +4244,7 @@ namespace DataModel.Migrations
                             ID = 1,
                             Code = "Y11BIO",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5499),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5911),
                             Description = "Year 11 Biology",
                             IPAddress = "255.255.255.1",
                             Name = "Biology, Year 11",
@@ -4299,7 +4256,7 @@ namespace DataModel.Migrations
                             ID = 2,
                             Code = "Y12ENG",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5502),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5915),
                             Description = "English for Year 12",
                             IPAddress = "255.255.255.1",
                             Name = "English, Year 12",
@@ -4311,7 +4268,7 @@ namespace DataModel.Migrations
                             ID = 3,
                             Code = "Y11MAT",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5503),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5917),
                             Description = "Year 11 Mathmatics",
                             IPAddress = "255.255.255.1",
                             Name = "Mathmatics, Year 11",
@@ -4323,7 +4280,7 @@ namespace DataModel.Migrations
                             ID = 4,
                             Code = "Y11CHM",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5505),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5919),
                             Description = "Year 11 Chemistry",
                             IPAddress = "255.255.255.1",
                             Name = "Chemistry, Year 11",
@@ -4335,7 +4292,7 @@ namespace DataModel.Migrations
                             ID = 5,
                             Code = "Y09MAT",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5506),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5922),
                             Description = "Year 09 Mathmatics",
                             IPAddress = "255.255.255.1",
                             Name = "Mathmatics, Year 09",
@@ -4347,7 +4304,7 @@ namespace DataModel.Migrations
                             ID = 6,
                             Code = "Y09ENG",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5508),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5924),
                             Description = "Year 09 English",
                             IPAddress = "255.255.255.1",
                             Name = "English, Year 09",
@@ -4359,7 +4316,7 @@ namespace DataModel.Migrations
                             ID = 7,
                             Code = "Y09BSC",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5509),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5930),
                             Description = "Year 09 Basic Science",
                             IPAddress = "255.255.255.1",
                             Name = "Basic Science, Year 09",
@@ -4371,7 +4328,7 @@ namespace DataModel.Migrations
                             ID = 8,
                             Code = "Y09TD",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5514),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5932),
                             Description = "Year 09 Technical Drawing",
                             IPAddress = "255.255.255.1",
                             Name = "Technical Drawing, Year 09",
@@ -4383,7 +4340,7 @@ namespace DataModel.Migrations
                             ID = 9,
                             Code = "Y09AGS",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5516),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5944),
                             Description = "Year 09 Agriculture Science",
                             IPAddress = "255.255.255.1",
                             Name = "Agriculture Science, Year 09",
@@ -4395,7 +4352,7 @@ namespace DataModel.Migrations
                             ID = 10,
                             Code = "Y09ACC",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5517),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5946),
                             Description = "Year 09 Accounting",
                             IPAddress = "255.255.255.1",
                             Name = "Accounting, Year 09",
@@ -4407,7 +4364,7 @@ namespace DataModel.Migrations
                             ID = 11,
                             Code = "Y09ECO",
                             CreatedBy = "RonAdmin",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 561, DateTimeKind.Utc).AddTicks(5519),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 929, DateTimeKind.Utc).AddTicks(5948),
                             Description = "Year 09 Economics",
                             IPAddress = "255.255.255.1",
                             Name = "Economic, Year 09",
@@ -4420,34 +4377,32 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("SchTerm")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("TermName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -4458,7 +4413,7 @@ namespace DataModel.Migrations
                         {
                             ID = 1,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5106),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1558),
                             IPAddress = "255.255.255.1",
                             SchTerm = 1,
                             TermName = "Term one",
@@ -4468,7 +4423,7 @@ namespace DataModel.Migrations
                         {
                             ID = 2,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5107),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1561),
                             IPAddress = "255.255.255.1",
                             SchTerm = 2,
                             TermName = "Term two",
@@ -4478,7 +4433,7 @@ namespace DataModel.Migrations
                         {
                             ID = 3,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5108),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1563),
                             IPAddress = "255.255.255.1",
                             SchTerm = 3,
                             TermName = "Term three",
@@ -4488,7 +4443,7 @@ namespace DataModel.Migrations
                         {
                             ID = 4,
                             CreatedBy = "Ronald",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5109),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1565),
                             IPAddress = "255.255.255.1",
                             SchTerm = 4,
                             TermName = "Term four",
@@ -4500,89 +4455,87 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("AddressLine1")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("AddressLine2")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Country")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("DOB")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Gender")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("State")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("UserTypeID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
@@ -4602,14 +4555,14 @@ namespace DataModel.Migrations
                             City = "Levuka",
                             Country = "Fiji",
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 290, DateTimeKind.Utc).AddTicks(1390),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 600, DateTimeKind.Utc).AddTicks(1270),
                             DOB = new DateTime(1956, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@admin.com",
                             FirstName = "Admin",
                             Gender = 3,
                             IPAddress = "107.23.365.369",
                             LastName = "Limited",
-                            Password = "$2a$11$zO67ffjJeBkAcC8r/cz0XODe0tt1ufp/M3II9XtD.XQjN3Mv.u7Y.",
+                            Password = "$2a$11$j5dEdXZX48I66bb7qh6p1ePR2BLBA6ZqQC3TqpBnRnMF8194W0PKm",
                             Phone = "9090337",
                             PostalCode = "0123",
                             State = "BlackWater",
@@ -4624,14 +4577,14 @@ namespace DataModel.Migrations
                             City = "Apia",
                             Country = "Samoa",
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 422, DateTimeKind.Utc).AddTicks(3809),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 760, DateTimeKind.Utc).AddTicks(9200),
                             DOB = new DateTime(1979, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@mail.com",
                             FirstName = "John-User",
                             Gender = 1,
                             IPAddress = "107.23.365.369",
                             LastName = "Smith",
-                            Password = "$2a$11$XEhZS03bODuUtligo9Pot.Kj3YRAWywK2zvwjGTnKbqkrEck3UftS",
+                            Password = "$2a$11$z5FXhpT8DPdfHcRaNEGi4uiF61jV/mn3qBRZNCneD4EVvZ5XvDbWC",
                             Phone = "74789699",
                             PostalCode = "458",
                             State = "North",
@@ -4646,14 +4599,14 @@ namespace DataModel.Migrations
                             City = "Port Vila",
                             Country = "Vanuatu",
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(4744),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1008),
                             DOB = new DateTime(2001, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "peter@mail.com",
                             FirstName = "Peter-Admin",
                             Gender = 3,
                             IPAddress = "107.23.365.369",
                             LastName = "Gates",
-                            Password = "$2a$11$LAEBYnn9fFnSQDA52Oc65.ZaeWrmbKHfHRE4Ak9YauG2YgG2KMnqS",
+                            Password = "$2a$11$hWqy2vJQakifhu0U3UVn2uuU.EH/zSXgmbDtaL1m8yaVk9lXgnPBm",
                             Phone = "8890337",
                             PostalCode = "889",
                             State = "Ocean",
@@ -4666,42 +4619,40 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("AppUserID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Path")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -4713,28 +4664,28 @@ namespace DataModel.Migrations
             modelBuilder.Entity("DataModel.Entity.UserRole", b =>
                 {
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -4748,7 +4699,7 @@ namespace DataModel.Migrations
                             UserId = 1,
                             RoleId = 1,
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5029),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1436),
                             IPAddress = "107.23.365.369",
                             UpdatedBy = "Admin-up"
                         },
@@ -4757,7 +4708,7 @@ namespace DataModel.Migrations
                             UserId = 1,
                             RoleId = 2,
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5033),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1441),
                             IPAddress = "107.23.365.369",
                             UpdatedBy = "Admin-up"
                         },
@@ -4766,7 +4717,7 @@ namespace DataModel.Migrations
                             UserId = 2,
                             RoleId = 1,
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5034),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1442),
                             IPAddress = "107.23.365.369",
                             UpdatedBy = "Admin-up"
                         },
@@ -4775,7 +4726,7 @@ namespace DataModel.Migrations
                             UserId = 3,
                             RoleId = 1,
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5035),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1445),
                             IPAddress = "107.23.365.369",
                             UpdatedBy = "Admin-up"
                         },
@@ -4784,7 +4735,7 @@ namespace DataModel.Migrations
                             UserId = 3,
                             RoleId = 2,
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5036),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1446),
                             IPAddress = "107.23.365.369",
                             UpdatedBy = "Admin-up"
                         },
@@ -4793,7 +4744,7 @@ namespace DataModel.Migrations
                             UserId = 3,
                             RoleId = 5,
                             CreatedBy = "Admin-cr",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 559, DateTimeKind.Utc).AddTicks(5037),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 926, DateTimeKind.Utc).AddTicks(1452),
                             IPAddress = "107.23.365.369",
                             UpdatedBy = "Admin-up"
                         });
@@ -4803,37 +4754,35 @@ namespace DataModel.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("IPAddress")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -4844,7 +4793,7 @@ namespace DataModel.Migrations
                         {
                             ID = 1,
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 156, DateTimeKind.Utc).AddTicks(7423),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 447, DateTimeKind.Utc).AddTicks(6834),
                             Description = "Type is user",
                             IPAddress = "",
                             Name = "User",
@@ -4854,7 +4803,7 @@ namespace DataModel.Migrations
                         {
                             ID = 2,
                             CreatedBy = "",
-                            CreatedDate = new DateTime(2023, 4, 23, 20, 40, 16, 156, DateTimeKind.Utc).AddTicks(7425),
+                            CreatedDate = new DateTime(2023, 5, 21, 18, 0, 36, 447, DateTimeKind.Utc).AddTicks(6835),
                             Description = "Type is seller",
                             IPAddress = "",
                             Name = "Seller",
@@ -4865,10 +4814,10 @@ namespace DataModel.Migrations
             modelBuilder.Entity("ProductPromotion", b =>
                 {
                     b.Property<int>("productID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("promotionsID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("productID", "promotionsID");
 

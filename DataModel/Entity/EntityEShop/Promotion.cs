@@ -47,9 +47,12 @@ namespace DataModel.Entity.EntityEShop
         
         [Precision(9, 2) ]
         public decimal DiscountPercent { get; set; }
+
         [DataType(DataType.Currency)]
         [Precision(9, 2) ]
         public decimal DiscountAmount { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
         public decimal DiscountValue { get; set; }
         public bool Staus { get; set; }
         public virtual ICollection<Product> product { get; set; } 

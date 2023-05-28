@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Azure.Core;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using SchoolApiv2.Repository.Contracts.EShopRepositoryContracts;
 using SchoolApiv2.Util;
 using SharedModel.Models.eShopModels;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 
@@ -34,7 +36,7 @@ namespace SchoolApiv2.Controllers.eShop
 
 
 
-                // GET: api/ProductController/GetPaymentToken/
+        // GET: api/ProductController/GetPaymentToken/
         [AllowAnonymous]
         [HttpPost("GetPaymentSession")]
         public async Task<ActionResult> GetPaymentSession([FromBody] PaymentEditDto paymentEditDto)
@@ -63,18 +65,18 @@ namespace SchoolApiv2.Controllers.eShop
                          "\"phoneNumber\": \"" + paymentEditDto.customerDto.Phone + "\",    " +
                          "\"homePhoneNumber\": \"" + paymentEditDto.customerDto.Phone + "\",    " +
                          "\"account\": \"99999999\", " +
-                         " \"shipping\": {\"name\": \"" +  paymentEditDto.customerDto.FirstName + ' '+ paymentEditDto.customerDto.LastName +"\",   " +
-                         "\"address1\": \""+ paymentEditDto.customerDto.AddressLine1 +"\",      \"address2\": \"\",   " +
-                         "\"address3\": \"\",      \"city\": \""+ paymentEditDto.customerDto.City +"\",     " +
-                         "\"countryCode\": \"FJ\", \"postalCode\": \"00679\",\"phoneNumber\": \""+ paymentEditDto.customerDto.Phone + "\",\"state\": \"\"   }}}"
-                          ,System.Text.Encoding.Default, "application/json"))
+                         " \"shipping\": {\"name\": \"" + paymentEditDto.customerDto.FirstName + ' ' + paymentEditDto.customerDto.LastName + "\",   " +
+                         "\"address1\": \"" + paymentEditDto.customerDto.AddressLine1 + "\",      \"address2\": \"\",   " +
+                         "\"address3\": \"\",      \"city\": \"" + paymentEditDto.customerDto.City + "\",     " +
+                         "\"countryCode\": \"FJ\", \"postalCode\": \"00679\",\"phoneNumber\": \"" + paymentEditDto.customerDto.Phone + "\",\"state\": \"\"   }}}"
+                          , System.Text.Encoding.Default, "application/json"))
                     {
                         using (var response = await httpClient.PostAsync("api/v1/sessions", content))
                         {
                             string responseData = await response.Content.ReadAsStringAsync();
                             return Ok(responseData);
                         }
-                    }   
+                    }
 
                 }
             }
@@ -83,5 +85,28 @@ namespace SchoolApiv2.Controllers.eShop
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [HttpGet("GetPaymentDetails/{paymentSessionId}")]
+        public async Task<ActionResult> GetPaymentDetails(string paymentSessionId)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty( paymentSessionId)  || !ModelState.IsValid)
+                {
+                    return BadRequest($"{nameof(paymentSessionId)} cannot be null or empty !");
+                }
+                var httpClient = new HttpClient { BaseAddress = new Uri(appsettings.WindcaveBasePath)};
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("authorization", $"Basic " + appsettings.WindcaveAuthToken);                                
+                var response = await httpClient.GetAsync($"api/v1/sessions/{paymentSessionId}");
+                string responseData = await response.Content.ReadAsStringAsync();                
+                return Ok(responseData);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
     }
+
 }
